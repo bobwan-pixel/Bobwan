@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #1c1c1c;
+  color: #fff;
+  margin: 0;
+  padding: 2rem;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #2c2c2c;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+}
+.card {
+  background: #fff;
+  color: #000;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+.button {
+  display: block;
+  margin-top: 2rem;
+  text-align: center;
+  background: #00f0ff;
+  color: #000;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}

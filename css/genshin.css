@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #0e1a2b;
+  background-color: #0f0f13;
   color: #fff;
   padding: 20px;
   line-height: 1.6;
@@ -16,11 +16,11 @@ body {
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background: #152642;
+  background: #1a1a24;
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border-top: 5px solid #f8b700;
+  border-top: 5px solid #d4af37;
 }
 
 /* HEADER STYLES */
@@ -36,14 +36,15 @@ body {
 }
 
 .header-game h1 {
-  color: #f8b700;
+  color: #fff;
   margin-top: 10px;
   font-size: 28px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .header-game h1 span {
-  background: #e63946;
-  color: white;
+  background: linear-gradient(to right, #d4af37, #f9d423);
+  color: #1a1a24;
   font-size: 14px;
   padding: 3px 10px;
   border-radius: 20px;
@@ -57,10 +58,10 @@ body {
 }
 
 .form-section h2 {
-  color: #f8b700;
+  color: #d4af37;
   margin-bottom: 15px;
   font-size: 20px;
-  border-bottom: 1px solid #2a3a5a;
+  border-bottom: 1px solid #2a2a3a;
   padding-bottom: 8px;
 }
 
@@ -72,28 +73,31 @@ body {
   display: block;
   margin-bottom: 5px;
   font-weight: 500;
+  color: #ccc;
 }
 
-.input-group input {
+.input-group input,
+.input-group select {
   width: 100%;
   padding: 12px;
-  border: 2px solid #2a3a5a;
+  border: 2px solid #2a2a3a;
   border-radius: 8px;
-  background: #1a2a4a;
+  background: #252535;
   color: #fff;
   font-size: 16px;
 }
 
-.input-group input:focus {
+.input-group input:focus,
+.input-group select:focus {
   outline: none;
-  border-color: #f8b700;
+  border-color: #d4af37;
 }
 
 .input-group small {
   display: block;
   margin-top: 5px;
   font-size: 12px;
-  color: #8a9bba;
+  color: #777;
 }
 
 /* PRODUCT LIST STYLES */
@@ -104,8 +108,8 @@ body {
 }
 
 .produk-card {
-  background: #1a2a4a;
-  border: 2px solid #2a3a5a;
+  background: #252535;
+  border: 2px solid #2a2a3a;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
@@ -120,8 +124,8 @@ body {
 }
 
 .produk-card.selected {
-  border-color: #f8b700;
-  background: #22345a;
+  border-color: #d4af37;
+  background: #2e2e3e;
 }
 
 .produk-card img {
@@ -134,10 +138,11 @@ body {
 .produk-card h3 {
   font-size: 16px;
   margin-bottom: 5px;
+  color: #fff;
 }
 
 .produk-card p {
-  color: #f8b700;
+  color: #d4af37;
   font-weight: bold;
 }
 
@@ -145,54 +150,116 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #e63946;
+  background: #5e72e4;
   color: white;
   font-size: 10px;
   padding: 2px 8px;
   border-radius: 10px;
+  font-weight: bold;
 }
 
-/* PAYMENT METHODS STYLES */
-.payment-methods {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+/* PAYMENT TABS */
+.payment-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
 }
 
-.payment-method {
-  background: #1a2a4a;
-  border: 2px solid #2a3a5a;
+.tab-button {
+  background: #252535;
+  border: none;
   border-radius: 8px;
-  padding: 12px;
-  text-align: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #888;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.3s ease;
 }
 
-.payment-method:hover {
-  transform: translateY(-2px);
+.tab-button.active {
+  background: linear-gradient(to right, #d4af37, #f9d423);
+  color: #1a1a24;
 }
 
-.payment-method.selected {
-  border-color: #f8b700;
-  background: #22345a;
+.tab-content {
+  display: none;
 }
 
-.payment-method img {
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* PAYMENT METHODS */
+.card-payment-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.card-payment {
+  background: #252535;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 1.2rem 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-payment input {
+  display: none;
+}
+
+.card-payment img {
   width: 40px;
   height: 40px;
   object-fit: contain;
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
+  transition: transform 0.3s ease;
 }
 
-.payment-method span {
-  font-size: 12px;
+.card-payment span {
   display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #f0f0f0;
 }
 
-/* SUMMARY BOX STYLES */
+.card-payment:hover {
+  border-color: #3a3a4a;
+  transform: translateY(-3px);
+}
+
+.card-payment:hover img {
+  transform: scale(1.1);
+}
+
+.card-payment input:checked + img {
+  border: 2px solid #d4af37;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.card-payment input:checked ~ span {
+  color: #d4af37;
+}
+
+/* SUMMARY BOX */
 .summary-box {
-  background: #1a2a4a;
+  background: #252535;
   border-radius: 10px;
   padding: 15px;
 }
@@ -201,7 +268,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #c0c8d8;
+  color: #bbb;
 }
 
 .summary-total {
@@ -209,22 +276,22 @@ body {
   justify-content: space-between;
   margin-top: 15px;
   padding-top: 10px;
-  border-top: 1px solid #2a3a5a;
+  border-top: 1px solid #3a3a4a;
   font-weight: bold;
   color: #fff;
 }
 
 #totalPayment {
-  color: #f8b700;
+  color: #d4af37;
   font-size: 18px;
 }
 
-/* CHECKOUT BUTTON STYLES */
+/* CHECKOUT BUTTON */
 .checkout-btn {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to right, #f8b700, #f8a400);
-  color: #152642;
+  background: linear-gradient(to right, #d4af37, #f9d423);
+  color: #1a1a24;
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -235,12 +302,12 @@ body {
 }
 
 .checkout-btn:hover {
-  background: linear-gradient(to right, #f8a400, #f89b00);
+  background: linear-gradient(to right, #c9a227, #e8c51d);
   transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(248, 183, 0, 0.3);
+  box-shadow: 0 5px 10px rgba(212, 175, 55, 0.3);
 }
 
-/* SECURITY BADGES STYLES */
+/* SECURITY BADGES */
 .security-badges {
   display: flex;
   justify-content: center;
@@ -267,7 +334,7 @@ body {
     grid-template-columns: 1fr;
   }
   
-  .payment-methods {
+  .card-payment-row {
     grid-template-columns: repeat(2, 1fr);
   }
 }

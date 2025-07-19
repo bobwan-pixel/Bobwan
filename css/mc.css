@@ -7,20 +7,23 @@
 }
 
 body {
-  background-color: #0e1a2b;
+  background-color: #1a0a2a;
   color: #fff;
   padding: 20px;
   line-height: 1.6;
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/chess_bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background: #152642;
+  background: rgba(34, 17, 51, 0.9);
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border-top: 5px solid #f8b700;
+  border-top: 5px solid #9c27b0;
 }
 
 /* HEADER STYLES */
@@ -36,13 +39,14 @@ body {
 }
 
 .header-game h1 {
-  color: #f8b700;
+  color: #e91e63;
   margin-top: 10px;
   font-size: 28px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .header-game h1 span {
-  background: #e63946;
+  background: #9c27b0;
   color: white;
   font-size: 14px;
   padding: 3px 10px;
@@ -57,10 +61,10 @@ body {
 }
 
 .form-section h2 {
-  color: #f8b700;
+  color: #e91e63;
   margin-bottom: 15px;
   font-size: 20px;
-  border-bottom: 1px solid #2a3a5a;
+  border-bottom: 1px solid #4a235a;
   padding-bottom: 8px;
 }
 
@@ -72,28 +76,29 @@ body {
   display: block;
   margin-bottom: 5px;
   font-weight: 500;
+  color: #ce93d8;
 }
 
 .input-group input {
   width: 100%;
   padding: 12px;
-  border: 2px solid #2a3a5a;
+  border: 2px solid #4a235a;
   border-radius: 8px;
-  background: #1a2a4a;
+  background: rgba(74, 35, 90, 0.5);
   color: #fff;
   font-size: 16px;
 }
 
 .input-group input:focus {
   outline: none;
-  border-color: #f8b700;
+  border-color: #e91e63;
 }
 
 .input-group small {
   display: block;
   margin-top: 5px;
   font-size: 12px;
-  color: #8a9bba;
+  color: #ba68c8;
 }
 
 /* PRODUCT LIST STYLES */
@@ -104,8 +109,8 @@ body {
 }
 
 .produk-card {
-  background: #1a2a4a;
-  border: 2px solid #2a3a5a;
+  background: rgba(74, 35, 90, 0.5);
+  border: 2px solid #4a235a;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
@@ -120,8 +125,8 @@ body {
 }
 
 .produk-card.selected {
-  border-color: #f8b700;
-  background: #22345a;
+  border-color: #e91e63;
+  background: rgba(93, 44, 113, 0.7);
 }
 
 .produk-card img {
@@ -134,10 +139,11 @@ body {
 .produk-card h3 {
   font-size: 16px;
   margin-bottom: 5px;
+  color: #fff;
 }
 
 .produk-card p {
-  color: #f8b700;
+  color: #e91e63;
   font-weight: bold;
 }
 
@@ -145,54 +151,116 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #e63946;
+  background: #9c27b0;
   color: white;
   font-size: 10px;
   padding: 2px 8px;
   border-radius: 10px;
+  font-weight: bold;
 }
 
-/* PAYMENT METHODS STYLES */
-.payment-methods {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+/* PAYMENT TABS */
+.payment-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
 }
 
-.payment-method {
-  background: #1a2a4a;
-  border: 2px solid #2a3a5a;
+.tab-button {
+  background: rgba(74, 35, 90, 0.5);
+  border: none;
   border-radius: 8px;
-  padding: 12px;
-  text-align: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ba68c8;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.3s ease;
 }
 
-.payment-method:hover {
-  transform: translateY(-2px);
+.tab-button.active {
+  background: #e91e63;
+  color: white;
 }
 
-.payment-method.selected {
-  border-color: #f8b700;
-  background: #22345a;
+.tab-content {
+  display: none;
 }
 
-.payment-method img {
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* PAYMENT METHODS */
+.card-payment-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.card-payment {
+  background: rgba(74, 35, 90, 0.5);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 1.2rem 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-payment input {
+  display: none;
+}
+
+.card-payment img {
   width: 40px;
   height: 40px;
   object-fit: contain;
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
+  transition: transform 0.3s ease;
 }
 
-.payment-method span {
-  font-size: 12px;
+.card-payment span {
   display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #f0f0f0;
 }
 
-/* SUMMARY BOX STYLES */
+.card-payment:hover {
+  border-color: #5d2c71;
+  transform: translateY(-3px);
+}
+
+.card-payment:hover img {
+  transform: scale(1.1);
+}
+
+.card-payment input:checked + img {
+  border: 2px solid #e91e63;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.card-payment input:checked ~ span {
+  color: #e91e63;
+}
+
+/* SUMMARY BOX */
 .summary-box {
-  background: #1a2a4a;
+  background: rgba(74, 35, 90, 0.5);
   border-radius: 10px;
   padding: 15px;
 }
@@ -201,7 +269,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #c0c8d8;
+  color: #ce93d8;
 }
 
 .summary-total {
@@ -209,22 +277,22 @@ body {
   justify-content: space-between;
   margin-top: 15px;
   padding-top: 10px;
-  border-top: 1px solid #2a3a5a;
+  border-top: 1px solid #5d2c71;
   font-weight: bold;
   color: #fff;
 }
 
 #totalPayment {
-  color: #f8b700;
+  color: #e91e63;
   font-size: 18px;
 }
 
-/* CHECKOUT BUTTON STYLES */
+/* CHECKOUT BUTTON */
 .checkout-btn {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to right, #f8b700, #f8a400);
-  color: #152642;
+  background: linear-gradient(to right, #e91e63, #d81b60);
+  color: white;
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -232,15 +300,23 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .checkout-btn:hover {
-  background: linear-gradient(to right, #f8a400, #f89b00);
+  background: linear-gradient(to right, #d81b60, #c2185b);
   transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(248, 183, 0, 0.3);
+  box-shadow: 0 5px 10px rgba(233, 30, 99, 0.3);
 }
 
-/* SECURITY BADGES STYLES */
+.button-price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* SECURITY BADGES */
 .security-badges {
   display: flex;
   justify-content: center;
@@ -253,7 +329,7 @@ body {
   align-items: center;
   gap: 5px;
   font-size: 12px;
-  color: #8a9bba;
+  color: #ba68c8;
 }
 
 .badge img {
@@ -267,7 +343,16 @@ body {
     grid-template-columns: 1fr;
   }
   
-  .payment-methods {
+  .card-payment-row {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  body {
+    padding: 10px;
+    background-attachment: scroll;
+  }
+  
+  .container {
+    padding: 15px;
   }
 }

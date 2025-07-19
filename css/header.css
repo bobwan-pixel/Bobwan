@@ -1,0 +1,93 @@
+.header {
+  background-color: #111;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-img {
+  height: 38px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-icon img {
+  height: 22px;
+  filter: brightness(0) invert(1);
+}
+
+.saldo-user {
+  background-color: #222;
+  color: #0f0;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.burger-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100vh;
+  background: #1a1a1a;
+  transition: right 0.3s ease;
+  z-index: 999;
+  padding-top: 1rem;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-logo {
+  width: 80px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.sidebar-menu li {
+  margin: 0.8rem 0;
+}
+
+.sidebar-menu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.sidebar-menu a:hover {
+  color: #fff;
+}
