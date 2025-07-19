@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pembayaran - BOBWAN</title>
+  <link rel="stylesheet" href="css/pembayaran.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🧾 Detail Pembayaran</h1>
+    <div id="transaksi-container">
+      <p>Loading data transaksi...</p>
+    </div>
+    <a href="index.html" class="button">🔁 Kembali ke Beranda</a>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAgTTJCaWzXf55Eg491iR5A8qyb0VUUq-0",
+      authDomain: "bobwan-topup.firebaseapp.com",
+      projectId: "bobwan-topup",
+      storageBucket: "bobwan-topup.appspot.com",
+      messagingSenderId: "178046496054",
+      appId: "1:178046496054:web:d95a496ee0cb595a899797",
+      measurementId: "G-QE7KYKGNP3"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function tampilkanTransaksiTerakhir() {
+      const container = document.getElementById("transaksi-container");
+      try {
+        const q = query(collection(db, "transaksi"), orderBy("createdAt", "desc"), limit(1));
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+          container.innerHTML = "<p>❌ Tidak ada data transaksi ditemukan.</p>";
+          return;
+        }
+
+        const data = snapshot.docs[0].data();
+
+        container.innerHTML = `
+          <div class="card">
+            <p><strong>🎮 Game:</strong> ${data.game}</p>
+            <p><strong>🛒 Produk:</strong> ${data.product}</p>
+            <p><strong>🆔 ID:</strong> ${data.userId}</p>
+            ${data.world ? `<p><strong>🌍 World:</strong> ${data.world}</p>` : ""}
+            ${data.server ? `<p><strong>🌐 Server:</strong> ${data.server}</p>` : ""}
+            <p><strong>📱 Kontak:</strong> ${data.contact}</p>
+            <p><strong>💳 Pembayaran:</strong> ${data.payment}</p>
+            <p><strong>🕒 Waktu:</strong> ${new Date(data.createdAt).toLocaleString("id-ID")}</p>
+          </div>
+        `;
+      } catch (error) {
+        console.error(error);
+        container.innerHTML = "<p>❌ Gagal memuat data transaksi.</p>";
+      }
+    }
+
+    tampilkanTransaksiTerakhir();
+  </script>
+</body>
+</html>

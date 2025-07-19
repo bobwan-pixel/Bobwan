@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BOBWAN - Top Up Game Murah</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/header.css">
+  <script defer src="js/header.js"></script>
+</head>
+<body>
+
+  <!-- Header dari file terpisah -->
+  <div id="header-container"></div>
+
+  <!-- Banner -->
+  <section class="banner">
+    <img src="asset/banner/banner-topup.png" alt="Promo Top Up Terbaru">
+  </section>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h2>Selamat datang di BOBWAN!</h2>
+      <p>Website top-up game tercepat dan termurah, hanya di sini!</p>
+    </div>
+  </section>
+
+  <!-- Produk -->
+  <section id="produk" class="produk-list">
+    <div class="container">
+      <h2>Pilih Game</h2>
+      <div class="game-grid">
+        <a href="pk/ml.html" class="game-card">
+          <img src="asset/g/ml/ml.png" alt="Mobile Legends">
+          <span class="game-name">Mobile Legends</span>
+        </a>
+        <a href="pk/ff.html" class="game-card">
+          <img src="asset/g/ff/ff.png" alt="Free Fire">
+          <span class="game-name">Free Fire</span>
+        </a>
+        <a href="pk/genshin.html" class="game-card">
+          <img src="asset/g/genshin/genshin.png" alt="Genshin Impact">
+          <span class="game-name">Genshin Impact</span>
+        </a>
+                <a href="pk/pubgm.html" class="game-card">
+          <img src="asset/g/pubg/pubg.png" alt="Roblox">
+          <span class="game-name">PUBG Mobile</span>
+        </a>
+        <a href="pk/gt.html" class="game-card">
+          <img src="asset/g/growtopia/gt.png" alt="Growtopia">
+          <span class="game-name">Growtopia</span>
+        </a>
+        <a href="pk/roblox.html" class="game-card">
+          <img src="asset/g/roblox/roblox.png" alt="Roblox">
+          <span class="game-name">Roblox</span>
+        </a>
+        <a href="pk/fc.html" class="game-card">
+          <img src="asset/g/fc/fc.png" alt="Roblox">
+          <span class="game-name">Fc Mobile</span>
+        </a>
+                <a href="pk/hongkai.html" class="game-card">
+          <img src="asset/g/hongkai/hongkai.png" alt="Roblox">
+          <span class="game-name">Honkai StarRail</span>
+        </a>
+                <a href="pk/mc.html" class="game-card">
+          <img src="asset/g/mc/mc.png" alt="Roblox">
+          <span class="game-name">Magic chess Go Go</span>
+        </a>
+                <a href="pk/coc.html" class="game-card">
+          <img src="asset/g/coc/coc.png" alt="Roblox">
+          <span class="game-name">Clas Of Clan</span>
+        </a>
+                <a href="pk/codm.html" class="game-card">
+          <img src="asset/g/codm/codm.png" alt="Roblox">
+          <span class="game-name">Call Of Duty Mobile</span>
+        </a>
+                <a href="pk/rok.html" class="game-card">
+          <img src="asset/g/rok/rok.png" alt="Roblox">
+          <span class="game-name">Rise Of Kingdom</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!--- FOOTER
+<footer>
+  <div class="container" style="text-align: center;">
+    <!-- Logo -->
+    <img src="asset/logo/logo.png" alt="BOBWAN Logo" style="width: 80px; margin-bottom: 10px;" />
+    
+    <!-- Teks Deskripsi -->
+    <p>&copy; 2025 <strong>BOBWAN</strong> - Semua hak cipta dilindungi.</p>
+    <p>Top-up cepat, aman, dan terpercaya untuk semua game favoritmu.</p>
+
+    <!-- Sosial Media -->
+    <div style="margin-top: 10px;">
+      <p>Sosial Media Kami:</p>
+      <div style="display: flex; justify-content: center; gap: 12px; align-items: center; margin-top: 8px;">
+        <a href="https://instagram.com/bobwan.id" target="_blank" title="Instagram">
+          <img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png" alt="Instagram" />
+        </a>
+        <a href="https://facebook.com/bobwan.id" target="_blank" title="Facebook">
+          <img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="Facebook" />
+        </a>
+        <a href="https://twitter.com/bobwan_id" target="_blank" title="Twitter">
+          <img src="https://img.icons8.com/ios-filled/30/ffffff/twitter.png" alt="Twitter" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!--- Script--->
+
+<script>
+  fetch('header.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('header-container').innerHTML = data;
+
+      // Inject langsung kode JS di sini karena DOM baru muncul setelah fetch selesai
+      const burger = document.getElementById("burgerToggle");
+      const sidebar = document.getElementById("sidebar");
+
+      if (burger && sidebar) {
+        burger.addEventListener("click", () => {
+          sidebar.classList.toggle("open");
+        });
+      }
+
+      document.addEventListener("click", (e) => {
+        if (
+          sidebar.classList.contains("open") &&
+          !sidebar.contains(e.target) &&
+          !burger.contains(e.target)
+        ) {
+          sidebar.classList.remove("open");
+        }
+      });
+
+      const searchBtn = document.querySelector('.search-icon');
+      if (searchBtn) {
+        searchBtn.addEventListener('click', () => {
+          alert('Fitur pencarian belum tersedia');
+        });
+      }
+    });
+</script>
