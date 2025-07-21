@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire MAX Diamonds</title>
+    <link rel="stylesheet" href="../css/ffmax.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER GAME -->
+        <div class="header-game">
+            <img src="assets/ffmax_logo.png" alt="Free Fire MAX">
+            <h1>Free Fire MAX <span>TOP UP</span></h1>
+        </div>
+
+        <!-- FORM INPUT -->
+        <div class="form-section">
+            <h2>Player Information</h2>
+            <div class="input-group">
+                <label>Player ID</label>
+                <input type="text" id="playerId" placeholder="Your FF MAX ID" required>
+                <small>Found in your MAX profile</small>
+            </div>
+        </div>
+
+        <!-- PILIH PRODUK -->
+        <div class="form-section">
+            <h2>Select Diamonds</h2>
+            <div class="produk-list" id="produkList">
+                <!-- Produk akan diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <!-- METODE PEMBAYARAN -->
+        <div class="form-section">
+            <h2>Payment Method</h2>
+            <div class="payment-methods" id="paymentMethods">
+                <!-- Metode pembayaran akan diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <!-- KONTAK -->
+        <div class="form-section">
+            <h2>Contact Information</h2>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="email@example.com" required>
+            </div>
+            <div class="input-group">
+                <label>WhatsApp Number (Optional)</label>
+                <input type="tel" id="whatsapp" placeholder="+628123456789">
+            </div>
+        </div>
+
+        <!-- RINGKASAN PEMBAYARAN -->
+        <div class="form-section">
+            <h2>Order Summary</h2>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>Diamonds:</span>
+                    <span id="selectedProduct">-</span>
+                </div>
+                <div class="summary-item">
+                    <span>Base Price:</span>
+                    <span id="productPrice">Rp 0</span>
+                </div>
+                <div class="summary-item">
+                    <span>Bonus:</span>
+                    <span id="maxBonus">+0% Free</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total Payment:</span>
+                    <span id="totalPayment">Rp 0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOMBOL CHECKOUT -->
+        <div class="form-section">
+            <button id="checkoutBtn" class="checkout-btn">Get Diamonds Now</button>
+            <div class="security-badges">
+                <div class="badge">
+                    <img src="assets/secure_icon.png" alt="Secure">
+                    <span>Secure Payment</span>
+                </div>
+                <div class="badge">
+                    <img src="assets/fast_icon.png" alt="Fast">
+                    <span>Instant Delivery</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../js/ffmax.js"></script>
+</body>
+</html>

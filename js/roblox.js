@@ -135,7 +135,7 @@ function initPaymentTabs() {
   });
 }
 
-// Fungsi untuk handle checkout
+// Fungsi untuk handle checkout dan redirect ke pembayaran.html
 function handleCheckout() {
   const checkoutBtn = document.getElementById('checkoutBtn');
   
@@ -194,8 +194,8 @@ function handleCheckout() {
       timestamp: new Date().toISOString()
     };
     
-    console.log('Order Data:', orderData);
-    alert(`Pembelian berhasil!\n\nUsername: ${username}\nMetode: ${deliveryMethod}\nProduk: ${selectedProduct}\nTotal: ${formatCurrency(orderData.total)}\n\nSilakan selesaikan pembayaran.`);
+    localStorage.setItem('orderData', JSON.stringify(orderData));
+    window.location.href = "pembayaran.html";
   });
 }
 

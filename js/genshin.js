@@ -1,204 +1,170 @@
-// Data produk Genshin Impact
-const genshinProducts = [
-  {
-    id: 1,
-    name: "60 Genesis Crystals",
-    price: 15000,
-    image: "../asset/produk/genshin_60gc.png"
-  },
-  {
-    id: 2,
-    name: "300 Genesis Crystals",
-    price: 30000,
-    image: "../asset/produk/genshin_300gc.png"
-  },
-  {
-    id: 3,
-    name: "980 Genesis Crystals",
-    price: 60000,
-    image: "../asset/produk/genshin_980gc.png"
-  },
-  {
-    id: 4,
-    name: "1980 Genesis Crystals",
-    price: 150000,
-    image: "../asset/produk/genshin_1980gc.png"
-  },
-  {
-    id: 5,
-    name: "3280 Genesis Crystals",
-    price: 300000,
-    image: "../asset/produk/genshin_3280gc.png"
-  },
-  {
-    id: 6,
-    name: "6480 Genesis Crystals",
-    price: 600000,
-    image: "../asset/produk/genshin_6480gc.png"
-  },
-  {
-    id: 7,
-    name: "Welkin Moon (30 Days)",
-    price: 75000,
-    image: "../asset/produk/genshin_welkin.png"
-  },
-  {
-    id: 8,
-    name: "Gnostic Hymn (BP)",
-    price: 150000,
-    image: "../asset/produk/genshin_bp.png"
-  }
+// Data Produk Genshin Impact
+const products = [
+  { id: 1, name: "60 Genesis Crystals", price: 15000, image: "assets/genshin_crystal.png", bestSeller: true },
+  { id: 2, name: "300+30 Genesis Crystals", price: 74000, image: "assets/genshin_crystal.png" },
+  { id: 3, name: "980+110 Genesis Crystals", price: 239000, image: "assets/genshin_crystal.png", popular: true },
+  { id: 4, name: "1980+260 Genesis Crystals", price: 479000, image: "assets/genshin_crystal.png" },
+  { id: 5, name: "3280+600 Genesis Crystals", price: 799000, image: "assets/genshin_crystal.png" },
+  { id: 6, name: "6480+1600 Genesis Crystals", price: 1500000, image: "assets/genshin_crystal.png" }
 ];
 
-// Variabel global
-let selectedProduct = null;
-let selectedPrice = 0;
+// Metode Pembayaran
+const paymentMethods = {
+  ewallet: [
+    { id: "qris", name: "QRIS", image: "assets/qris_icon.png" },
+    { id: "dana", name: "DANA", image: "assets/dana_icon.png" },
+    { id: "shopeepay", name: "ShopeePay", image: "assets/shopeepay_icon.png" }
+  ],
+  bank: [
+    { id: "bca", name: "BCA", image: "assets/bca_icon.png" },
+    { id: "bri", name: "BRI", image: "assets/bri_icon.png" }
+  ],
+  retail: [
+    { id: "alfamart", name: "Alfamart", image: "assets/alfamart_icon.png" },
+    { id: "indomaret", name: "Indomaret", image: "assets/indomaret_icon.png" }
+  ]
+};
 
-// Fungsi untuk menampilkan produk
-function displayProducts() {
+let selectedProduct = null;
+let selectedPayment = null;
+const TAX_RATE = 0.1;
+
+function loadProducts() {
   const produkList = document.getElementById('produkList');
   produkList.innerHTML = '';
 
-  genshinProducts.forEach(product => {
-    const productCard = document.createElement('div');
-    productCard.className = 'produk-card';
-    productCard.setAttribute('data-harga', product.price);
-    productCard.innerHTML = `
+  products.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'produk-card';
+    card.dataset.id = product.id;
+    card.dataset.price = product.price;
+
+    let badge = '';
+    if (product.bestSeller) {
+      badge = '<div class="badge">Best Value</div>';
+    } else if (product.popular) {
+      badge = '<div class="badge">Populer</div>';
+    }
+
+    card.innerHTML = `
+      ${badge}
       <img src="${product.image}" alt="${product.name}">
-      <span>${product.name}</span>
-      <span class="harga">${formatCurrency(product.price)}</span>
+      <h3>${product.name}</h3>
+      <p>Rp ${product.price.toLocaleString('id-ID')}</p>
     `;
-    produkList.appendChild(productCard);
-  });
 
-  addProductEventListeners();
-}
-
-// Fungsi untuk menambahkan event listener ke produk
-function addProductEventListeners() {
-  const productCards = document.querySelectorAll('.produk-card');
-  
-  productCards.forEach(card => {
-    card.addEventListener('click', function() {
-      productCards.forEach(c => c.classList.remove('active'));
-      this.classList.add('active');
-      
-      const productName = this.querySelector('span:first-child').textContent;
-      const productPrice = parseInt(this.getAttribute('data-harga'));
-      
-      selectedProduct = productName;
-      selectedPrice = productPrice;
-      
-      updateSummary();
-    });
+    card.addEventListener('click', () => selectProduct(card, product));
+    produkList.appendChild(card);
   });
 }
 
-// Fungsi untuk update ringkasan pembayaran
+function selectProduct(element, product) {
+  document.querySelectorAll('.produk-card').forEach(card => {
+    card.classList.remove('selected');
+  });
+
+  element.classList.add('selected');
+  selectedProduct = product;
+  updateSummary();
+}
+
 function updateSummary() {
-  const selectedProductEl = document.getElementById('selectedProduct');
-  const productPriceEl = document.getElementById('productPrice');
-  const taxAmountEl = document.getElementById('taxAmount');
-  const totalPaymentEl = document.getElementById('totalPayment');
-  
+  const productSummary = document.getElementById('selectedProduct');
+  const productPriceElement = document.getElementById('productPrice');
+  const taxAmountElement = document.getElementById('taxAmount');
+  const totalPaymentElement = document.getElementById('totalPayment');
+
   if (selectedProduct) {
-    selectedProductEl.textContent = selectedProduct;
-    productPriceEl.textContent = formatCurrency(selectedPrice);
-    
-    const tax = Math.round(selectedPrice * 0.1);
-    taxAmountEl.textContent = formatCurrency(tax);
-    
-    const total = selectedPrice + tax;
-    totalPaymentEl.textContent = formatCurrency(total);
+    const productPrice = selectedProduct.price;
+    const tax = Math.round(productPrice * TAX_RATE);
+    const total = productPrice + tax;
+
+    productSummary.textContent = selectedProduct.name;
+    productPriceElement.textContent = `Rp ${productPrice.toLocaleString('id-ID')}`;
+    taxAmountElement.textContent = `Rp ${tax.toLocaleString('id-ID')}`;
+    totalPaymentElement.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+
+    document.getElementById('checkoutBtn').querySelector('.button-price').textContent = 
+      `Rp ${total.toLocaleString('id-ID')}`;
   } else {
-    selectedProductEl.textContent = '-';
-    productPriceEl.textContent = 'Rp 0';
-    taxAmountEl.textContent = 'Rp 0';
-    totalPaymentEl.textContent = 'Rp 0';
+    productSummary.textContent = "-";
+    productPriceElement.textContent = "Rp 0";
+    taxAmountElement.textContent = "Rp 0";
+    totalPaymentElement.textContent = "Rp 0";
   }
 }
 
-// Fungsi helper untuk format mata uang
-function formatCurrency(amount) {
-  return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+function validateForm() {
+  const uid = document.getElementById('uid').value;
+  const server = document.getElementById('server').value;
+  const email = document.getElementById('email').value;
+
+  if (!uid) {
+    alert('Masukkan UID Anda');
+    return false;
+  }
+  if (!server) {
+    alert('Pilih server Anda');
+    return false;
+  }
+  if (!email.match(/^\S+@\S+\.\S+$/)) {
+    alert('Masukkan email yang valid');
+    return false;
+  }
+  if (!selectedProduct) {
+    alert('Pilih produk terlebih dahulu');
+    return false;
+  }
+  if (!selectedPayment) {
+    alert('Pilih metode pembayaran terlebih dahulu');
+    return false;
+  }
+
+  return true;
 }
 
-// Fungsi untuk inisialisasi tab pembayaran
-function initPaymentTabs() {
-  const tabButtons = document.querySelectorAll('.tab-button');
-  
-  tabButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-      
-      this.classList.add('active');
-      const tabId = this.getAttribute('data-tab');
-      document.getElementById(tabId).classList.add('active');
-    });
-  });
-}
+function processCheckout() {
+  if (validateForm()) {
+    const productPrice = selectedProduct.price;
+    const tax = Math.round(productPrice * TAX_RATE);
+    const total = productPrice + tax;
 
-// Fungsi untuk handle checkout
-function handleCheckout() {
-  const checkoutBtn = document.getElementById('checkoutBtn');
-  
-  checkoutBtn.addEventListener('click', function() {
-    const playerId = document.getElementById('uid').value;
-    const server = document.getElementById('server').value;
-    const email = document.getElementById('email').value;
-    const whatsapp = document.getElementById('whatsapp').value;
-    const paymentMethod = document.querySelector('input[name="metodePembayaran"]:checked');
-    
-    // Validasi form
-    if (!playerId) {
-      alert('Silakan masukkan UID Anda');
-      return;
-    }
-    
-    if (!server) {
-      alert('Silakan pilih server');
-      return;
-    }
-    
-    if (!selectedProduct) {
-      alert('Silakan pilih produk');
-      return;
-    }
-    
-    if (!paymentMethod) {
-      alert('Silakan pilih metode pembayaran');
-      return;
-    }
-    
-    if (!email) {
-      alert('Silakan masukkan email Anda');
-      return;
-    }
-    
-    // Prepare order data
     const orderData = {
-      game: 'Genshin Impact',
-      uid: playerId,
-      server: server,
-      product: selectedProduct,
-      price: selectedPrice,
-      tax: Math.round(selectedPrice * 0.1),
-      total: selectedPrice + Math.round(selectedPrice * 0.1),
-      paymentMethod: paymentMethod.value,
-      email: email,
-      whatsapp: whatsapp || '',
+      uid: document.getElementById('uid').value,
+      server: document.getElementById('server').value,
+      product: selectedProduct.name,
+      productPrice,
+      tax,
+      total,
+      paymentMethod: selectedPayment.name,
+      email: document.getElementById('email').value,
+      whatsapp: document.getElementById('whatsapp').value || null,
       timestamp: new Date().toISOString()
     };
-    
-    console.log('Order Data:', orderData);
-    alert(`Pembelian berhasil!\n\nUID: ${playerId}\nServer: ${server}\nProduk: ${selectedProduct}\nTotal: ${formatCurrency(orderData.total)}\n\nSilakan selesaikan pembayaran.`);
-  });
+
+    localStorage.setItem('orderData', JSON.stringify(orderData));
+    window.location.href = '../pembayaran.html';
+  }
 }
 
-// Inisialisasi saat halaman dimuat
-document.addEventListener('DOMContentLoaded', function() {
-  displayProducts();
-  initPaymentTabs();
-  handleCheckout();
+document.addEventListener('DOMContentLoaded', () => {
+  loadProducts();
+
+  document.querySelectorAll('.card-payment input').forEach(radio => {
+    radio.addEventListener('change', function () {
+      if (this.checked) {
+        const methodId = this.value;
+        for (const group in paymentMethods) {
+          const method = paymentMethods[group].find(m => m.id === methodId);
+          if (method) {
+            selectedPayment = method;
+            updateSummary();
+            break;
+          }
+        }
+      }
+    });
+  });
+
+  document.getElementById('checkoutBtn').addEventListener('click', processCheckout);
 });

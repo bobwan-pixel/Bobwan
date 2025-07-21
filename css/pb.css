@@ -3,15 +3,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 body {
-  background-color: #1a0a2a;
+  background-color: #0a0a12;
   color: #fff;
   padding: 20px;
   line-height: 1.6;
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/chess_bg.jpg');
+  background-image: url('assets/pb_bg_pattern.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
@@ -19,11 +19,12 @@ body {
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background: ##1a1a2a;
-  border-radius: 15px;
+  background: rgba(20, 20, 30, 0.9);
+  border-radius: 5px;
   padding: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border-top: 5px solid #00a8e8;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-top: 5px solid #f8b100;
+  backdrop-filter: blur(5px);
 }
 
 /* HEADER STYLES */
@@ -33,26 +34,29 @@ body {
 }
 
 .header-game img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 }
 
 .header-game h1 {
   color: #fff;
   margin-top: 10px;
-  font-size: 28px;
+  font-size: 32px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .header-game h1 span {
-  background: #00a8e8;
-  color: white;
+  background: #f8b100;
+  color: #1a1a24;
   font-size: 14px;
   padding: 3px 10px;
-  border-radius: 20px;
+  border-radius: 3px;
   margin-left: 10px;
-  vertical-align: middle;
+  font-weight: 700;
 }
 
 /* FORM STYLES */
@@ -61,11 +65,14 @@ body {
 }
 
 .form-section h2 {
-  color: #00a8e8;
+  color: #f8b100;
   margin-bottom: 15px;
   font-size: 20px;
   border-bottom: 1px solid #2a2a3a;
   padding-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .input-group {
@@ -75,15 +82,18 @@ body {
 .input-group label {
   display: block;
   margin-bottom: 5px;
-  font-weight: 500;
-  color: #fff;
+  font-weight: 600;
+  color: #ddd;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .input-group input {
   width: 100%;
   padding: 12px;
   border: 2px solid #2a2a3a;
-  border-radius: 8px;
+  border-radius: 3px;
   background: #252535;
   color: #fff;
   font-size: 16px;
@@ -91,14 +101,14 @@ body {
 
 .input-group input:focus {
   outline: none;
-  border-color: #00a8e8;
+  border-color: #f8b100;
 }
 
 .input-group small {
   display: block;
   margin-top: 5px;
   font-size: 12px;
-  color: #fff;
+  color: #777;
 }
 
 /* PRODUCT LIST STYLES */
@@ -111,7 +121,7 @@ body {
 .produk-card {
   background: #252535;
   border: 2px solid #2a2a3a;
-  border-radius: 10px;
+  border-radius: 3px;
   padding: 15px;
   text-align: center;
   cursor: pointer;
@@ -121,11 +131,11 @@ body {
 
 .produk-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(248, 177, 0, 0.2);
 }
 
 .produk-card.selected {
-  border-color: #00a8e8;
+  border-color: #f8b100;
   background: #2e2e3e;
 }
 
@@ -140,10 +150,11 @@ body {
   font-size: 16px;
   margin-bottom: 5px;
   color: #fff;
+  font-weight: 600;
 }
 
 .produk-card p {
-  color: #00a8e8;
+  color: #f8b100;
   font-weight: bold;
 }
 
@@ -151,12 +162,13 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #FC3;
+  background: #d62839;
   color: white;
   font-size: 10px;
   padding: 2px 8px;
-  border-radius: 10px;
+  border-radius: 3px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* PAYMENT TABS */
@@ -171,7 +183,7 @@ body {
 .tab-button {
   background: #252535;
   border: none;
-  border-radius: 8px;
+  border-radius: 3px;
   padding: 0.6rem 1.2rem;
   font-size: 0.9rem;
   font-weight: 600;
@@ -179,11 +191,13 @@ body {
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .tab-button.active {
-  background: #00a8e8;
-  color: white;
+  background: #f8b100;
+  color: #1a1a24;
 }
 
 .tab-content {
@@ -210,7 +224,7 @@ body {
 .card-payment {
   background: #252535;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 3px;
   padding: 1.2rem 0.8rem;
   text-align: center;
   cursor: pointer;
@@ -249,27 +263,29 @@ body {
 }
 
 .card-payment input:checked + img {
-  border: 2px solid #00a8e8;
+  border: 2px solid #f8b100;
   border-radius: 50%;
   padding: 2px;
 }
 
 .card-payment input:checked ~ span {
-  color: #00a8e8;
+  color: #f8b100;
 }
 
 /* SUMMARY BOX */
 .summary-box {
   background: #252535;
-  border-radius: 10px;
+  border-radius: 3px;
   padding: 15px;
+  border: 1px solid #2a2a3a;
 }
 
 .summary-item {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #c0c8d8;
+  color: #bbb;
+  font-weight: 500;
 }
 
 .summary-total {
@@ -280,10 +296,12 @@ body {
   border-top: 1px solid #3a3a4a;
   font-weight: bold;
   color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 #totalPayment {
-  color: #fff;
+  color: #f8b100;
   font-size: 18px;
 }
 
@@ -291,29 +309,25 @@ body {
 .checkout-btn {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to right, #00a8e8, #0095d9);
-  color: white;
+  background: linear-gradient(to right, #f8b100, #e6a000);
+  color: #1a1a24;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 3px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
 }
 
 .checkout-btn:hover {
-  background: linear-gradient(to right, #0095d9, #0082c8);
+  background: linear-gradient(to right, #e6a000, #d49500);
   transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(0, 168, 232, 0.3);
-}
-
-.button-price {
-  font-weight: bold;
-  font-size: 16px;
+  box-shadow: 0 5px 10px rgba(248, 177, 0, 0.3);
 }
 
 /* SECURITY BADGES */
@@ -329,7 +343,7 @@ body {
   align-items: center;
   gap: 5px;
   font-size: 12px;
-  color: #c0c8d8;
+  color: #8a9bba;
 }
 
 .badge img {
@@ -345,14 +359,5 @@ body {
   
   .card-payment-row {
     grid-template-columns: repeat(2, 1fr);
-  }
-  
-  body {
-    padding: 10px;
-    background-attachment: scroll;
-  }
-  
-  .container {
-    padding: 15px;
   }
 }

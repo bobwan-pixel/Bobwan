@@ -1,0 +1,464 @@
+/* Delta Force Military Theme */
+:root {
+    --military-primary: #4a7729; /* Camo green */
+    --military-secondary: #8b9e7a; /* Light camo */
+    --military-dark: #1a1f16; /* Dark tactical */
+    --military-accent: #d4af37; /* Medal gold */
+    --military-light: #e0e0e0; /* Neutral light */
+}
+
+body {
+    background-color: var(--military-dark);
+    color: var(--military-light);
+    font-family: 'Rajdhani', sans-serif;
+    background-image: url('assets/camo_bg.jpg');
+    background-size: cover;
+    padding: 20px;
+    position: relative;
+}
+
+.military-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 31, 22, 0.85);
+    z-index: -1;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(30, 35, 28, 0.9);
+    border-radius: 5px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--military-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--military-primary), var(--military-accent), var(--military-primary));
+}
+
+/* Header Styles */
+.header-game {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.header-game::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--military-primary), transparent);
+}
+
+.military-badge {
+    background: rgba(74, 119, 41, 0.3);
+    border: 1px solid var(--military-primary);
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 15px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.military-badge img {
+    height: 25px;
+    margin-right: 10px;
+}
+
+.military-badge span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--military-accent);
+    text-transform: uppercase;
+}
+
+.header-game h1 {
+    color: var(--military-light);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.subtitle {
+    color: var(--military-secondary);
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 25px;
+}
+
+.form-section h2 {
+    color: var(--military-accent);
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.section-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    filter: brightness(0.8);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--military-secondary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--military-primary);
+    border-radius: 3px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--military-accent);
+    background: rgba(74, 119, 41, 0.1);
+}
+
+.input-group small {
+    color: var(--military-secondary);
+    font-size: 12px;
+}
+
+/* Product Cards */
+.produk-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.produk-card {
+    background: rgba(20, 25, 18, 0.7);
+    border: 1px solid var(--military-primary);
+    border-radius: 3px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.produk-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--military-primary);
+}
+
+.produk-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    border-color: var(--military-accent);
+}
+
+.produk-card.selected {
+    background: rgba(30, 40, 25, 0.9);
+    border-color: var(--military-accent);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.produk-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.produk-card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: 600;
+}
+
+.produk-card p {
+    color: var(--military-accent);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.produk-card .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--military-primary);
+    color: white;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Payment Tabs */
+.payment-tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--military-primary);
+    padding-bottom: 5px;
+}
+
+.tab-button {
+    background: rgba(74, 119, 41, 0.2);
+    border: none;
+    border-radius: 3px 3px 0 0;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--military-secondary);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    flex: 1;
+    text-align: center;
+}
+
+.tab-button.active {
+    background: var(--military-primary);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+/* Payment Methods */
+.card-payment-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.card-payment {
+    background: rgba(20, 25, 18, 0.7);
+    border: 1px solid var(--military-primary);
+    border-radius: 3px;
+    padding: 15px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card-payment:hover {
+    border-color: var(--military-accent);
+    transform: translateY(-3px);
+}
+
+.card-payment input {
+    display: none;
+}
+
+.card-payment img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.card-payment span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--military-light);
+}
+
+.card-payment input:checked + img {
+    border: 2px solid var(--military-accent);
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.card-payment input:checked ~ span {
+    color: var(--military-accent);
+    font-weight: 700;
+}
+
+/* Summary Box */
+.summary-box {
+    background: rgba(20, 25, 18, 0.7);
+    border-radius: 3px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid var(--military-primary);
+    position: relative;
+}
+
+.summary-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--military-primary), var(--military-accent));
+}
+
+.summary-box h3 {
+    color: var(--military-accent);
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--military-light);
+    font-size: 15px;
+}
+
+.summary-item.highlight {
+    color: var(--military-accent);
+    font-weight: 600;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--military-primary);
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+}
+
+#totalPayment {
+    color: var(--military-accent);
+    font-size: 20px;
+}
+
+/* Checkout Button */
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, var(--military-primary), #3a5e21);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.checkout-btn:hover {
+    background: linear-gradient(to right, #3a5e21, #2d4a1a);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(74, 119, 41, 0.3);
+}
+
+/* Security Badges */
+.security-badges {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--military-secondary);
+    background: rgba(20, 25, 18, 0.7);
+    padding: 8px 12px;
+    border-radius: 3px;
+    border: 1px solid var(--military-primary);
+    text-transform: uppercase;
+}
+
+.badge img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .produk-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .payment-tabs {
+        flex-direction: column;
+    }
+    
+    .tab-button {
+        border-radius: 3px;
+        margin-bottom: 5px;
+    }
+}

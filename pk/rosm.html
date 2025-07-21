@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules of Survival Diamonds</title>
+    <link rel="stylesheet" href="../css/rosm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- ROS Header -->
+        <div class="header-game">
+            <img src="assets/ros_logo.png" alt="Rules of Survival Logo">
+            <h1>BATTLE DIAMONDS</h1>
+            <p class="subtitle">Upgrade your survival gear</p>
+        </div>
+
+        <!-- Player Information -->
+        <div class="form-section">
+            <h2><img src="assets/icon_soldier.png" class="section-icon"> SOLDIER PROFILE</h2>
+            <div class="input-group">
+                <label for="playerId">PLAYER ID</label>
+                <input type="text" id="playerId" placeholder="Your ROS ID">
+            </div>
+            <div class="input-group">
+                <label for="character">CHARACTER NAME</label>
+                <input type="text" id="character" placeholder="Your In-Game Name">
+            </div>
+        </div>
+
+        <!-- Diamond Packages -->
+        <div class="form-section">
+            <h2><img src="assets/icon_diamond.png" class="section-icon"> DIAMOND PACKAGES</h2>
+            <div class="produk-list" id="produkList">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="form-section">
+            <h2><img src="assets/icon_payment.png" class="section-icon"> PAYMENT METHOD</h2>
+            <div class="payment-tabs">
+                <button class="tab-button active" data-tab="ewallet">E-WALLET</button>
+                <button class="tab-button" data-tab="bank">BANK</button>
+                <button class="tab-button" data-tab="voucher">VOUCHER</button>
+            </div>
+
+            <div class="tab-content active" id="ewallet">
+                <div class="card-payment-row">
+                    <!-- Payment methods loaded by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="summary-box">
+            <h3>MISSION BRIEFING</h3>
+            <div class="summary-item">
+                <span>Diamonds:</span>
+                <span id="selectedProduct">-</span>
+            </div>
+            <div class="summary-item">
+                <span>Price:</span>
+                <span id="productPrice">$0.00</span>
+            </div>
+            <div class="summary-item highlight">
+                <span>Bonus:</span>
+                <span id="rosBonus">+0%</span>
+            </div>
+            <div class="summary-total">
+                <span>TOTAL:</span>
+                <span id="totalPayment">$0.00</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                PURCHASE DIAMONDS
+            </button>
+        </div>
+
+        <!-- Security Badges -->
+        <div class="security-badges">
+            <div class="badge">
+                <img src="assets/icon_shield.png" alt="Shield">
+                <span>Secure Transaction</span>
+            </div>
+            <div class="badge">
+                <img src="assets/icon_verified.png" alt="Verified">
+                <span>Official Partner</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../css/roms.js"></script>
+</body>
+</html>

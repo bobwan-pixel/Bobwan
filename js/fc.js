@@ -93,13 +93,17 @@ function updateSummary() {
     productPriceElement.textContent = `Rp ${productPrice.toLocaleString('id-ID')}`;
     taxAmountElement.textContent = `Rp ${taxAmount.toLocaleString('id-ID')}`;
     totalPaymentElement.textContent = `Rp ${totalPayment.toLocaleString('id-ID')}`;
-    checkoutButtonPrice.textContent = `Rp ${totalPayment.toLocaleString('id-ID')}`;
+    if (checkoutButtonPrice) {
+      checkoutButtonPrice.textContent = `Rp ${totalPayment.toLocaleString('id-ID')}`;
+    }
   } else {
     productSummary.textContent = "-";
     productPriceElement.textContent = "Rp 0";
     taxAmountElement.textContent = "Rp 0";
     totalPaymentElement.textContent = "Rp 0";
-    checkoutButtonPrice.textContent = "Rp 0";
+    if (checkoutButtonPrice) {
+      checkoutButtonPrice.textContent = "Rp 0";
+    }
   }
 }
 
@@ -150,11 +154,9 @@ function processCheckout() {
       timestamp: new Date().toISOString()
     };
     
-    // Simulasi pengiriman data ke server
-    console.log('Data Order:', orderData);
-    
-    // Tampilkan konfirmasi
-    alert(`Pembayaran berhasil diproses!\n\nTotal: Rp ${totalPayment.toLocaleString('id-ID')}\nMetode: ${selectedPayment.name}\n\nFIFA Points akan masuk dalam 1-5 menit.`);
+    // Simpan ke localStorage dan redirect ke pembayaran.html
+    localStorage.setItem('orderData', JSON.stringify(orderData));
+    window.location.href = "pembayaran.html";
   }
 }
 

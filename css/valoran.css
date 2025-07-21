@@ -1,29 +1,27 @@
+/* VALORAN.CSS dengan layout COC tapi warna tetap Valorant */
 /* GLOBAL STYLES */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Tungsten', 'Arial Narrow', Arial, sans-serif;
 }
 
 body {
-  background-color: #1a0a2a;
+  background-color: #111927;
   color: #fff;
   padding: 20px;
   line-height: 1.6;
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/chess_bg.jpg');
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background: ##1a1a2a;
+  background: #1a2433;
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border-top: 5px solid #00a8e8;
+  border-top: 5px solid #ff4655;
 }
 
 /* HEADER STYLES */
@@ -42,11 +40,11 @@ body {
   color: #fff;
   margin-top: 10px;
   font-size: 28px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
 }
 
 .header-game h1 span {
-  background: #00a8e8;
+  background: #ff4655;
   color: white;
   font-size: 14px;
   padding: 3px 10px;
@@ -61,10 +59,10 @@ body {
 }
 
 .form-section h2 {
-  color: #00a8e8;
+  color: #ff4655;
   margin-bottom: 15px;
   font-size: 20px;
-  border-bottom: 1px solid #2a2a3a;
+  border-bottom: 1px solid #263143;
   padding-bottom: 8px;
 }
 
@@ -76,29 +74,28 @@ body {
   display: block;
   margin-bottom: 5px;
   font-weight: 500;
-  color: #fff;
 }
 
 .input-group input {
   width: 100%;
   padding: 12px;
-  border: 2px solid #2a2a3a;
+  border: 2px solid #263143;
   border-radius: 8px;
-  background: #252535;
+  background: #212e3f;
   color: #fff;
   font-size: 16px;
 }
 
 .input-group input:focus {
   outline: none;
-  border-color: #00a8e8;
+  border-color: #ff4655;
 }
 
 .input-group small {
   display: block;
   margin-top: 5px;
   font-size: 12px;
-  color: #fff;
+  color: #76859b;
 }
 
 /* PRODUCT LIST STYLES */
@@ -109,8 +106,8 @@ body {
 }
 
 .produk-card {
-  background: #252535;
-  border: 2px solid #2a2a3a;
+  background: #212e3f;
+  border: 2px solid #263143;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
@@ -125,8 +122,8 @@ body {
 }
 
 .produk-card.selected {
-  border-color: #00a8e8;
-  background: #2e2e3e;
+  border-color: #ff4655;
+  background: #28374a;
 }
 
 .produk-card img {
@@ -139,11 +136,10 @@ body {
 .produk-card h3 {
   font-size: 16px;
   margin-bottom: 5px;
-  color: #fff;
 }
 
 .produk-card p {
-  color: #00a8e8;
+  color: #ff4655;
   font-weight: bold;
 }
 
@@ -151,116 +147,55 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #FC3;
-  color: white;
+  background: #0f1923;
+  color: #ff4655;
   font-size: 10px;
   padding: 2px 8px;
   border-radius: 10px;
-  font-weight: bold;
+  border: 1px solid #ff4655;
 }
 
-/* PAYMENT TABS */
-.payment-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-}
-
-.tab-button {
-  background: #252535;
-  border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #888;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-}
-
-.tab-button.active {
-  background: #00a8e8;
-  color: white;
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
-  animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* PAYMENT METHODS */
-.card-payment-row {
+/* PAYMENT METHODS STYLES */
+.payment-methods {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
-.card-payment {
-  background: #252535;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  padding: 1.2rem 0.8rem;
+.payment-method {
+  background: #212e3f;
+  border: 2px solid #263143;
+  border-radius: 8px;
+  padding: 12px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.card-payment input {
-  display: none;
+.payment-method:hover {
+  transform: translateY(-2px);
 }
 
-.card-payment img {
+.payment-method.selected {
+  border-color: #ff4655;
+  background: #28374a;
+}
+
+.payment-method img {
   width: 40px;
   height: 40px;
   object-fit: contain;
-  margin-bottom: 0.8rem;
-  transition: transform 0.3s ease;
+  margin-bottom: 8px;
 }
 
-.card-payment span {
+.payment-method span {
+  font-size: 12px;
   display: block;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #f0f0f0;
 }
 
-.card-payment:hover {
-  border-color: #3a3a4a;
-  transform: translateY(-3px);
-}
-
-.card-payment:hover img {
-  transform: scale(1.1);
-}
-
-.card-payment input:checked + img {
-  border: 2px solid #00a8e8;
-  border-radius: 50%;
-  padding: 2px;
-}
-
-.card-payment input:checked ~ span {
-  color: #00a8e8;
-}
-
-/* SUMMARY BOX */
+/* SUMMARY BOX STYLES */
 .summary-box {
-  background: #252535;
+  background: #212e3f;
   border-radius: 10px;
   padding: 15px;
 }
@@ -269,7 +204,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #c0c8d8;
+  color: #76859b;
 }
 
 .summary-total {
@@ -277,21 +212,21 @@ body {
   justify-content: space-between;
   margin-top: 15px;
   padding-top: 10px;
-  border-top: 1px solid #3a3a4a;
+  border-top: 1px solid #263143;
   font-weight: bold;
   color: #fff;
 }
 
 #totalPayment {
-  color: #fff;
+  color: #ff4655;
   font-size: 18px;
 }
 
-/* CHECKOUT BUTTON */
+/* CHECKOUT BUTTON STYLES */
 .checkout-btn {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to right, #00a8e8, #0095d9);
+  background: linear-gradient(to right, #ff4655, #e63a4a);
   color: white;
   border: none;
   border-radius: 8px;
@@ -300,23 +235,15 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .checkout-btn:hover {
-  background: linear-gradient(to right, #0095d9, #0082c8);
+  background: linear-gradient(to right, #e63a4a, #d42f3f);
   transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(0, 168, 232, 0.3);
+  box-shadow: 0 5px 10px rgba(255, 70, 85, 0.3);
 }
 
-.button-price {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-/* SECURITY BADGES */
+/* SECURITY BADGES STYLES */
 .security-badges {
   display: flex;
   justify-content: center;
@@ -329,7 +256,7 @@ body {
   align-items: center;
   gap: 5px;
   font-size: 12px;
-  color: #c0c8d8;
+  color: #76859b;
 }
 
 .badge img {
@@ -343,16 +270,16 @@ body {
     grid-template-columns: 1fr;
   }
   
-  .card-payment-row {
+  .payment-methods {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  body {
-    padding: 10px;
-    background-attachment: scroll;
-  }
-  
-  .container {
-    padding: 15px;
-  }
+}
+
+/* VALORANT FONT */
+@font-face {
+  font-family: 'Tungsten';
+  src: url('fonts/Tungsten-Bold.woff2') format('woff2'),
+       url('fonts/Tungsten-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
 }

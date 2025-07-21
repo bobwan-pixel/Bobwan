@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up Point Blank</title>
+  <link rel="stylesheet" href="../css/pb.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER GAME -->
+    <div class="header-game">
+      <img src="../asset/g/val/val.png" alt="Valorant" />
+      <h1>Point Blank<span>TOP UP</span></h1>
+    </div>
+
+    <!-- FORM AKUN -->
+    <div class="form-section">
+      <h2>Data Akun</h2>
+      <div class="input-group">
+        <label>Masukan Id Anda</label>
+        <input type="text" id="riotId" placeholder="Contoh: user#1234" required />
+      </div>
+    </div>
+
+    <!-- PRODUK -->
+    <div class="form-section">
+      <h2>Pilih Produk</h2>
+      <div class="produk-list" id="produkList"></div>
+    </div>
+
+    <!-- PEMBAYARAN -->
+    <div class="form-section">
+      <h2>Metode Pembayaran</h2>
+      <div class="payment-tabs">
+        <button class="tab-button active" data-tab="ewallet">E-Wallet</button>
+        <button class="tab-button" data-tab="bank">Bank</button>
+        <button class="tab-button" data-tab="retail">Retail</button>
+        <button class="tab-button" data-tab="pulsa">Pulsa</button>
+      </div>
+
+      <div class="tab-content active" id="ewallet"></div>
+      <div class="tab-content" id="bank"></div>
+      <div class="tab-content" id="retail"></div>
+      <div class="tab-content" id="pulsa"></div>
+    </div>
+
+    <!-- KONTAK -->
+    <div class="form-section">
+      <h2>Informasi Kontak</h2>
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="email@anda.com" required />
+      </div>
+      <div class="input-group">
+        <label>Nomor WhatsApp (Opsional)</label>
+        <input type="tel" id="whatsapp" placeholder="08123456789" />
+      </div>
+    </div>
+
+    <!-- RINGKASAN -->
+    <div class="form-section">
+      <h2>Ringkasan Pembayaran</h2>
+      <div class="summary-box">
+        <div class="summary-item">
+          <span>Produk:</span>
+          <span id="selectedProduct">-</span>
+        </div>
+        <div class="summary-item">
+          <span>Harga Produk:</span>
+          <span id="productPrice">Rp 0</span>
+        </div>
+        <div class="summary-item">
+          <span>Pajak (10%):</span>
+          <span id="taxAmount">Rp 0</span>
+        </div>
+        <div class="summary-total">
+          <span>Total Pembayaran:</span>
+          <span id="totalPayment">Rp 0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKOUT -->
+    <div class="form-section">
+      <button id="checkoutBtn" class="checkout-btn">Bayar Sekarang</button>
+      <div class="security-badges">
+        <div class="badge">
+          <img src="assets/secure_icon.png" alt="Secure" />
+          <span>Pembayaran Aman</span>
+        </div>
+        <div class="badge">
+          <img src="assets/fast_icon.png" alt="Fast" />
+          <span>Proses Cepat</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/pb.js"></script>
+</body>
+</html>

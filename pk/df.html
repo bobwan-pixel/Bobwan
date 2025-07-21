@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Force Diamonds</title>
+    <link rel="stylesheet" href="../css/df.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="military-overlay"></div>
+    <div class="container">
+        <!-- Military Header -->
+        <div class="header-game">
+            <div class="military-badge">
+                <img src="assets/delta_force_logo.png" alt="Delta Force Logo">
+                <span>ELITE FORCES EDITION</span>
+            </div>
+            <h1>TACTICAL DIAMONDS</h1>
+            <p class="subtitle">Mission Funds • Elite Upgrades • Special Ops Gear</p>
+        </div>
+
+        <!-- Soldier Information -->
+        <div class="form-section">
+            <h2><img src="assets/icon_soldier.png" class="section-icon"> SOLDIER PROFILE</h2>
+            <div class="input-group">
+                <label for="playerId">OPERATIVE ID</label>
+                <input type="text" id="playerId" placeholder="Your Delta Force ID">
+                <small>Found in your barracks profile</small>
+            </div>
+            <div class="input-group">
+                <label for="email">COMMAND CONTACT</label>
+                <input type="email" id="email" placeholder="your@email.com">
+                <small>For mission reports</small>
+            </div>
+        </div>
+
+        <!-- Diamond Selection -->
+        <div class="form-section">
+            <h2><img src="assets/icon_diamond.png" class="section-icon"> MISSION FUNDING</h2>
+            <div class="produk-list" id="produkList">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+    <!-- PEMBAYARAN -->
+    <div class="form-section">
+      <h2>Metode Pembayaran</h2>
+      <div class="payment-tabs">
+        <button class="tab-button active" data-tab="ewallet">E-Wallet</button>
+        <button class="tab-button" data-tab="bank">Bank</button>
+        <button class="tab-button" data-tab="retail">Retail</button>
+        <button class="tab-button" data-tab="pulsa">Pulsa</button>
+      </div>
+
+      <div class="tab-content active" id="ewallet"></div>
+      <div class="tab-content" id="bank"></div>
+      <div class="tab-content" id="retail"></div>
+      <div class="tab-content" id="pulsa"></div>
+    </div>
+
+
+        <!-- Mission Briefing (Order Summary) -->
+        <div class="summary-box">
+            <h3>MISSION BRIEFING</h3>
+            <div class="summary-item">
+                <span>Supplies:</span>
+                <span id="selectedProduct">-</span>
+            </div>
+            <div class="summary-item">
+                <span>Base Cost:</span>
+                <span id="productPrice">Rp.0</span>
+            </div>
+            <div class="summary-item highlight">
+                <span>Elite Discount:</span>
+                <span id="militaryDiscount">-10%</span>
+            </div>
+            <div class="summary-total">
+                <span>TOTAL REQUIRED:</span>
+                <span id="totalPayment">Rp.0</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                CONFIRM MISSION
+            </button>
+        </div>
+
+        <!-- Security Badges -->
+        <div class="security-badges">
+            <div class="badge">
+                <img src="assets/icon_secure.png" alt="Secure">
+                <span>ENCRYPTED TRANSACTION</span>
+            </div>
+            <div class="badge">
+                <img src="assets/icon_verified.png" alt="Verified">
+                <span>MILITARY GRADE SECURITY</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/df.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG Mobile Lite UC</title>
+    <link rel="stylesheet" href="../css/pubgml.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- PUBG Lite Header -->
+        <div class="header-game">
+            <img src="assets/pubg_lite_logo.png" alt="PUBG Lite Logo">
+            <h1>UNKNOWN CASH <span>LITE EDITION</span></h1>
+        </div>
+
+        <!-- Player Information -->
+        <div class="form-section">
+            <h2>PLAYER INFORMATION</h2>
+            <div class="input-group">
+                <label for="playerId">PUBG Lite ID</label>
+                <input type="text" id="playerId" placeholder="Your Player ID">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your@email.com">
+            </div>
+        </div>
+
+        <!-- UC Packages -->
+        <div class="form-section">
+            <h2>SELECT UC PACKAGE</h2>
+            <div class="produk-list" id="produkList">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="form-section">
+            <h2>PAYMENT METHOD</h2>
+            <div class="payment-tabs">
+                <button class="tab-button active" data-tab="ewallet">E-WALLET</button>
+                <button class="tab-button" data-tab="voucher">VOUCHER</button>
+            </div>
+
+            <div class="tab-content active" id="ewallet">
+                <div class="card-payment-row">
+                    <!-- Payment methods loaded by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="summary-box">
+            <h3>ORDER SUMMARY</h3>
+            <div class="summary-item">
+                <span>UC Package:</span>
+                <span id="selectedProduct">-</span>
+            </div>
+            <div class="summary-item">
+                <span>Price:</span>
+                <span id="productPrice">Rp 0</span>
+            </div>
+            <div class="summary-total">
+                <span>Total:</span>
+                <span id="totalPayment">Rp 0</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                BUY UC
+            </button>
+        </div>
+
+        <!-- Security Badges -->
+        <div class="security-badges">
+            <div class="badge">
+                <img src="assets/icon_secure.png" alt="Secure">
+                <span>Secure Payment</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/pubgml.js"></script>
+</body>
+</html>

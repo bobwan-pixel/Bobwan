@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Points Purchase</title>
+    <link rel="stylesheet" href="../css/valoran.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER GAME -->
+        <div class="header-game">
+            <img src="assets/valorant_logo.png" alt="Valorant">
+            <h1>Valorant Points <span>TOP UP</span></h1>
+        </div>
+
+        <!-- FORM INPUT -->
+        <div class="form-section">
+            <h2>Account Information</h2>
+            <div class="input-group">
+                <label>Riot ID (Username#Tag)</label>
+                <input type="text" id="playerId" placeholder="PlayerName#1234" required>
+                <small>Example: PlayerName#1234</small>
+            </div>
+        </div>
+
+        <!-- PILIH PRODUK -->
+        <div class="form-section">
+            <h2>Select Valorant Points</h2>
+            <div class="produk-list" id="produkList">
+                <!-- Produk akan diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <!-- METODE PEMBAYARAN -->
+        <div class="form-section">
+            <h2>Payment Method</h2>
+            <div class="payment-methods" id="paymentMethods">
+                <!-- Metode pembayaran akan diisi oleh JavaScript -->
+            </div>
+        </div>
+
+        <!-- KONTAK -->
+        <div class="form-section">
+            <h2>Contact Information</h2>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="email@example.com" required>
+            </div>
+            <div class="input-group">
+                <label>WhatsApp Number (Optional)</label>
+                <input type="tel" id="whatsapp" placeholder="+628123456789">
+            </div>
+        </div>
+
+        <!-- RINGKASAN PEMBAYARAN -->
+        <div class="form-section">
+            <h2>Order Summary</h2>
+            <div class="summary-box">
+                <div class="summary-item">
+                    <span>Product:</span>
+                    <span id="selectedProduct">-</span>
+                </div>
+                <div class="summary-item">
+                    <span>Base Price:</span>
+                    <span id="productPrice">Rp 0</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tax (10%):</span>
+                    <span id="taxAmount">Rp 0</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total Payment:</span>
+                    <span id="totalPayment">Rp 0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOMBOL CHECKOUT -->
+        <div class="form-section">
+            <button id="checkoutBtn" class="checkout-btn">Buy Now</button>
+            <div class="security-badges">
+                <div class="badge">
+                    <img src="assets/shield_icon.png" alt="Secure">
+                    <span>Secure Payment</span>
+                </div>
+                <div class="badge">
+                    <img src="assets/lock_icon.png" alt="SSL">
+                    <span>SSL Encryption</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/valoran.js"></script>
+</body>
+</html>

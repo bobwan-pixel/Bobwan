@@ -94,8 +94,11 @@ function updateSummary() {
     totalPaymentElement.textContent = `Rp ${totalPayment.toLocaleString('id-ID')}`;
     
     // Update tombol checkout
-    document.getElementById('checkoutBtn').querySelector('.button-price').textContent = 
-      `Rp ${totalPayment.toLocaleString('id-ID')}`;
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    if (checkoutBtn.querySelector('.button-price')) {
+      checkoutBtn.querySelector('.button-price').textContent = 
+        `Rp ${totalPayment.toLocaleString('id-ID')}`;
+    }
   } else {
     productSummary.textContent = "-";
     productPriceElement.textContent = "Rp 0";
@@ -154,8 +157,10 @@ function processCheckout() {
     // Simulasi pengiriman data ke server
     console.log('Data Order:', orderData);
     
-    // Tampilkan konfirmasi
-    alert(`Pembayaran berhasil diproses!\n\nTotal: Rp ${totalPayment.toLocaleString('id-ID')}\nMetode: ${selectedPayment.name}\n\nCP akan masuk dalam 1-5 menit.`);
+    // Simpan data order ke localStorage untuk digunakan di halaman pembayaran.html
+    localStorage.setItem('orderData', JSON.stringify(orderData));
+    // Redirect ke pembayaran.html
+    window.location.href = "../pembayaran.html";
   }
 }
 
@@ -203,9 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  
-  localStorage.setItem('orderData', JSON.stringify(orderData));
-    window.location.href = "../pembayaran.html";
   
   // Event listener untuk tombol checkout
   document.getElementById('checkoutBtn').addEventListener('click', processCheckout);

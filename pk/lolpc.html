@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends RP</title>
+    <link rel="stylesheet" href="../css/lolpc.css">
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Beau+Rivage&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- LoL Header -->
+        <div class="header-game">
+            <img src="assets/lol_logo.png" alt="League of Legends Logo">
+            <h1>RIOT POINTS</h1>
+            <p class="subtitle">Unlock champions and skins</p>
+        </div>
+
+        <!-- Player Information -->
+        <div class="form-section">
+            <h2>SUMMONER INFO</h2>
+            <div class="input-group">
+                <label for="summonerName">Summoner Name</label>
+                <input type="text" id="summonerName" placeholder="Your in-game name">
+            </div>
+            <div class="input-group">
+                <label for="region">Region</label>
+                <select id="region">
+                    <option value="na">NA</option>
+                    <option value="euw">EUW</option>
+                    <option value="eune">EUNE</option>
+                    <option value="br">BR</option>
+                    <option value="tr">TR</option>
+                    <option value="ru">RU</option>
+                    <option value="oce">OCE</option>
+                    <option value="jp">JP</option>
+                    <option value="kr">KR</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- RP Packages -->
+        <div class="form-section">
+            <h2>RP PACKAGES</h2>
+            <div class="produk-list" id="produkList">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="form-section">
+            <h2>PAYMENT METHOD</h2>
+            <div class="payment-tabs">
+                <button class="tab-button active" data-tab="card">CARD</button>
+                <button class="tab-button" data-tab="paypal">PAYPAL</button>
+                <button class="tab-button" data-tab="gift">GIFT CARD</button>
+            </div>
+
+            <div class="tab-content active" id="card">
+                <div class="card-payment-row">
+                    <!-- Payment methods loaded by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="summary-box">
+            <h3>ORDER SUMMARY</h3>
+            <div class="summary-item">
+                <span>RP:</span>
+                <span id="selectedProduct">-</span>
+            </div>
+            <div class="summary-item">
+                <span>Price:</span>
+                <span id="productPrice">$0.00</span>
+            </div>
+            <div class="summary-total">
+                <span>Total:</span>
+                <span id="totalPayment">$0.00</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                PURCHASE RP
+            </button>
+        </div>
+
+        <!-- Security Badges -->
+        <div class="security-badges">
+            <div class="badge">
+                <img src="assets/icon_secure.png" alt="Secure">
+                <span>Secure Payment</span>
+            </div>
+            <div class="badge">
+                <img src="assets/icon_riot.png" alt="Riot">
+                <span>Official Riot Store</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/lolpc.js"></script>
+</body>
+</html>

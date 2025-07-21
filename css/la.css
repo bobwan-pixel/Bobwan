@@ -7,26 +7,23 @@
 }
 
 body {
-  background-color: #1a0a2a;
+  background-color: #0f0f13;
   color: #fff;
   padding: 20px;
   line-height: 1.6;
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/chess_bg.jpg');
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background: ##1a1a2a;
+  background: #1a1a24;
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border-top: 5px solid #00a8e8;
+  border-top: 5px solid #00c6a9;
 }
 
-/* HEADER STYLES */
+/* HEADER */
 .header-game {
   text-align: center;
   margin-bottom: 30px;
@@ -46,7 +43,7 @@ body {
 }
 
 .header-game h1 span {
-  background: #00a8e8;
+  background: #00c6a9;
   color: white;
   font-size: 14px;
   padding: 3px 10px;
@@ -55,13 +52,13 @@ body {
   vertical-align: middle;
 }
 
-/* FORM STYLES */
+/* FORM */
 .form-section {
   margin-bottom: 25px;
 }
 
 .form-section h2 {
-  color: #00a8e8;
+  color: #00c6a9;
   margin-bottom: 15px;
   font-size: 20px;
   border-bottom: 1px solid #2a2a3a;
@@ -76,7 +73,7 @@ body {
   display: block;
   margin-bottom: 5px;
   font-weight: 500;
-  color: #fff;
+  color: #ccc;
 }
 
 .input-group input {
@@ -91,17 +88,17 @@ body {
 
 .input-group input:focus {
   outline: none;
-  border-color: #00a8e8;
+  border-color: #00c6a9;
 }
 
 .input-group small {
   display: block;
   margin-top: 5px;
   font-size: 12px;
-  color: #fff;
+  color: #777;
 }
 
-/* PRODUCT LIST STYLES */
+/* PRODUK */
 .produk-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -125,7 +122,7 @@ body {
 }
 
 .produk-card.selected {
-  border-color: #00a8e8;
+  border-color: #00c6a9;
   background: #2e2e3e;
 }
 
@@ -143,7 +140,7 @@ body {
 }
 
 .produk-card p {
-  color: #00a8e8;
+  color: #00c6a9;
   font-weight: bold;
 }
 
@@ -151,8 +148,8 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #FC3;
-  color: white;
+  background: #ffd700;
+  color: #1a1a24;
   font-size: 10px;
   padding: 2px 8px;
   border-radius: 10px;
@@ -182,7 +179,7 @@ body {
 }
 
 .tab-button.active {
-  background: #00a8e8;
+  background: #00c6a9;
   color: white;
 }
 
@@ -249,16 +246,16 @@ body {
 }
 
 .card-payment input:checked + img {
-  border: 2px solid #00a8e8;
+  border: 2px solid #00c6a9;
   border-radius: 50%;
   padding: 2px;
 }
 
 .card-payment input:checked ~ span {
-  color: #00a8e8;
+  color: #00c6a9;
 }
 
-/* SUMMARY BOX */
+/* RINGKASAN */
 .summary-box {
   background: #252535;
   border-radius: 10px;
@@ -269,7 +266,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #c0c8d8;
+  color: #bbb;
 }
 
 .summary-total {
@@ -283,7 +280,7 @@ body {
 }
 
 #totalPayment {
-  color: #fff;
+  color: #00c6a9;
   font-size: 18px;
 }
 
@@ -291,7 +288,7 @@ body {
 .checkout-btn {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(to right, #00a8e8, #0095d9);
+  background: linear-gradient(to right, #00c6a9, #009f88);
   color: white;
   border: none;
   border-radius: 8px;
@@ -300,23 +297,15 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .checkout-btn:hover {
-  background: linear-gradient(to right, #0095d9, #0082c8);
+  background: linear-gradient(to right, #009f88, #008673);
   transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(0, 168, 232, 0.3);
+  box-shadow: 0 5px 10px rgba(0, 198, 169, 0.3);
 }
 
-.button-price {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-/* SECURITY BADGES */
+/* BADGES */
 .security-badges {
   display: flex;
   justify-content: center;
@@ -329,7 +318,7 @@ body {
   align-items: center;
   gap: 5px;
   font-size: 12px;
-  color: #c0c8d8;
+  color: #8a9bba;
 }
 
 .badge img {
@@ -337,22 +326,13 @@ body {
   height: 16px;
 }
 
-/* RESPONSIVE STYLES */
+/* RESPONSIVE */
 @media (max-width: 480px) {
   .produk-list {
     grid-template-columns: 1fr;
   }
-  
+
   .card-payment-row {
     grid-template-columns: repeat(2, 1fr);
-  }
-  
-  body {
-    padding: 10px;
-    background-attachment: scroll;
-  }
-  
-  .container {
-    padding: 15px;
   }
 }

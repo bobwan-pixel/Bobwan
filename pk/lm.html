@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lords Mobile Gems</title>
+    <link rel="stylesheet" href="../css/lm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Lords Mobile Header -->
+        <div class="header-game">
+            <img src="assets/lords_logo.png" alt="Lords Mobile Logo">
+            <h1>KINGDOM GEMS</h1>
+            <p>Power up your kingdom</p>
+        </div>
+
+        <!-- Player Information -->
+        <div class="form-section">
+            <h2>KINGDOM INFORMATION</h2>
+            <div class="input-group">
+                <label for="playerId">Player ID</label>
+                <input type="text" id="playerId" placeholder="Your Player ID">
+            </div>
+            <div class="input-group">
+                <label for="kingdom">Kingdom</label>
+                <input type="text" id="kingdom" placeholder="Your Kingdom Number">
+            </div>
+        </div>
+
+        <!-- Gem Packages -->
+        <div class="form-section">
+            <h2>GEM PACKAGES</h2>
+            <div class="produk-list" id="produkList">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="form-section">
+            <h2>PAYMENT METHOD</h2>
+            <div class="payment-tabs">
+                <button class="tab-button active" data-tab="ewallet">E-WALLET</button>
+                <button class="tab-button" data-tab="bank">BANK</button>
+                <button class="tab-button" data-tab="retail">Retail</button>
+                <button class="tab-button" data-tab="pulsa">pulsa</button>
+            </div>
+
+            <div class="tab-content active" id="ewallet">
+                <div class="card-payment-row">
+                    <!-- Payment methods loaded by JS -->
+                </div>
+            </div>
+            <div class="tab-content active" id="bank">
+                <div class="card-payment-row">
+                    <!-- Payment methods loaded by JS -->
+                </div>
+            </div>
+            <div class="tab-content active" id="retail">
+                <div class="card-payment-row">
+                    <!-- Payment methods loaded by JS -->
+                </div>
+            </div>
+            <div class="tab-content active" id="pulsa">
+                <div class="card-payment-row">
+                    <!-- Payment methods loaded by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="summary-box">
+            <h3>ORDER SUMMARY</h3>
+            <div class="summary-item">
+                <span>Gems:</span>
+                <span id="selectedProduct">-</span>
+            </div>
+            <div class="summary-item">
+                <span>Price:</span>
+                <span id="productPrice">$0.00</span>
+            </div>
+            <div class="summary-total">
+                <span>Total:</span>
+                <span id="totalPayment">$0.00</span>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">
+                PURCHASE GEMS
+            </button>
+        </div>
+
+        <!-- Security Badges -->
+        <div class="security-badges">
+            <div class="badge">
+                <img src="assets/icon_shield.png" alt="Shield">
+                <span>Secure Transaction</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/lm.js"></script>
+</body>
+</html>
