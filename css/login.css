@@ -1,0 +1,167 @@
+/* LOGIN & REGISTER THEME DARK - BOBWAN */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a1120;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  background: #121f36;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #00aeff;
+  font-size: 24px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 12px 12px 12px;
+  font-size: 15px;
+  background: #182a4a;
+  border: 2px solid #1e3258;
+  border-radius: 8px;
+  color: #fff;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #00aeff;
+}
+
+.form-group label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: #aaa;
+  font-size: 14px;
+  pointer-events: none;
+  transition: all 0.2s;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+  top: -10px;
+  left: 8px;
+  background: #121f36;
+  color: #00aeff;
+  font-size: 12px;
+  padding: 0 4px;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background: linear-gradient(to right, #00aeff, #0088cc);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background: linear-gradient(to right, #0088cc, #006699);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 174, 255, 0.3);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.register-link a {
+  color: #00aeff;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222f44;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,174,255,0.2);
+  display: none;
+  z-index: 1000;
+}
+
+.toast.show {
+  display: block;
+  animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; bottom: 10px; }
+  10%, 90% { opacity: 1; bottom: 20px; }
+  100% { opacity: 0; bottom: 10px; }
+}
+
+/* Mata / toggle password */
+.eye-toggle {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  cursor: pointer;
+  color: #888;
+}
+
+.eye-toggle:hover {
+  color: #00aeff;
+}
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #fff;
+  color: #444;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-google:hover {
+  background-color: #e6e6e6;
+}
+
+.icon-google {
+  width: 20px;
+  height: 20px;
+}
