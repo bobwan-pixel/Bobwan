@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login & Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="form-box" id="form-login">
+      <h2>Login</h2>
+      <input type="email" id="login-username" placeholder="Email">
+      <input type="password" id="login-password" placeholder="Password">
+      <button onclick="login()">Login</button>
+
+      <p class="divider">atau masuk dengan</p>
+      <div class="social-login">
+        <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google" onclick="googleLogin()">
+        <img src="https://img.icons8.com/ios-glyphs/48/github.png" alt="GitHub" onclick="githubLogin()">
+        <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" onclick="fbLogin()">
+      </div>
+
+      <p>Belum punya akun? <a href="#" id="to-register">Daftar</a></p>
+      <div id="login-msg" class="msg"></div>
+    </div>
+
+    <div class="form-box" id="form-register" style="display:none;">
+      <h2>Registrasi</h2>
+      <input type="text" id="reg-username" placeholder="Username">
+      <input type="email" id="reg-email" placeholder="Email">
+      <input type="password" id="reg-password" placeholder="Password">
+      <button onclick="register()">Daftar</button>
+
+      <p class="divider">atau daftar dengan</p>
+      <div class="social-login">
+        <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google" onclick="googleLogin()">
+        <img src="https://img.icons8.com/ios-glyphs/48/github.png" alt="GitHub" onclick="githubLogin()">
+        <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" onclick="fbLogin()">
+      </div>
+
+      <p>Sudah punya akun? <a href="#" id="to-login">Login</a></p>
+      <div id="reg-msg" class="msg"></div>
+    </div>
+  </div>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>

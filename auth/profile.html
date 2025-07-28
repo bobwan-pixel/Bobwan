@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil User - BOBWAN</title>
+  <!-- CSS Links -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="./profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../asset/logo/icon1.png" type="image/png">
+</head>
+<body>
+  <!-- Header Container -->
+  <div id="header-container"></div>
+
+  <!-- Profile Content -->
+  <div class="profile-wrapper">
+    <div class="profile-card">
+      <div class="avatar-container">
+        <img src="../asset/logo/icon1.png" alt="Logo Profil" class="profile-avatar">
+        <div class="avatar-edit-btn">
+          <i class="fas fa-camera"></i>
+        </div>
+      </div>
+      
+      <h1>Profil Pengguna</h1>
+      <p id="user-email"></p>
+      
+      <div class="profile-stats">
+        <div class="stat-item">
+          <div class="stat-value" id="joined-days">0</div>
+          <div class="stat-label">Hari Bergabung</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="completed-tasks">0</div>
+          <div class="stat-label">Tugas Selesai</div>
+        </div>
+      </div>
+      
+      <div class="profile-completion">
+        <p>Kelengkapan Profil <span id="completion-percent">0%</span></p>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="action-buttons">
+      <button class="btn btn-primary" id="btn-edit-profile">
+        <i class="fas fa-user-edit"></i> Edit Profil
+      </button>
+      <button class="btn btn-secondary" id="btn-dashboard" style="display:none;">
+        <i class="fas fa-tachometer-alt"></i> Dashboard
+      </button>
+      <button class="btn btn-logout" id="btn-logout">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </div>
+  
+  <div class="toast-notification" id="toast"></div>
+
+  <!-- Header Load Script -->
+  <script>
+    // Load header with proper error handling
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('../header.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Header load failed');
+          return response.text();
+        })
+        .then(html => {
+          document.getElementById('header-container').innerHTML = html;
+          initHeaderFunctions();
+        })
+        .catch(error => {
+          console.error('Header load error:', error);
+          // Fallback header if load fails
+          document.getElementById('header-container').innerHTML = `
+            <header class="header">
+              <div class="header-content">
+                <div class="logo-container">
+                  <a href="../index.html">
+                    <img src="../asset/logo/logo.png" alt="BOBWAN Logo" class="logo">
+                  </a>
+                </div>
+                <div class="header-actions">
+                  <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                  </div>
+                  <div id="burgerToggle" class="burger-menu">
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div id="sidebar" class="sidebar">
+              <!-- Sidebar content -->
+            </div>
+          `;
+          initHeaderFunctions();
+        });
+
+      function initHeaderFunctions() {
+        // Initialize burger menu toggle
+        const burger = document.getElementById("burgerToggle");
+        const sidebar = document.getElementById("sidebar");
+        
+        if (burger && sidebar) {
+          burger.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+          });
+        }
+        
+        // Close sidebar when clicking outside
+        document.addEventListener("click", (e) => {
+          if (sidebar && sidebar.classList.contains("open") && 
+              !sidebar.contains(e.target) && 
+              !burger.contains(e.target)) {
+            sidebar.classList.remove("open");
+          }
+        });
+
+        // Search button functionality
+        const searchBtn = document.querySelector('.search-icon');
+        if (searchBtn) {
+          searchBtn.addEventListener('click', () => {
+            alert('Fitur pencarian akan segera hadir!');
+          });
+        }
+      }
+    });
+  </script>
+
+  <!-- Profile Script -->
+  <script type="module" src="./profile.js"></script>
+</body>
+</html>
