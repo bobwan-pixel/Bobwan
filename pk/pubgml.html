@@ -11,7 +11,7 @@
     <div class="container">
         <!-- PUBG Lite Header -->
         <div class="header-game">
-            <img src="assets/pubg_lite_logo.png" alt="PUBG Lite Logo">
+            <img src="../asset/g/pubgml/pubg.jpg" alt="PUBG Lite Logo">
             <h1>UNKNOWN CASH <span>LITE EDITION</span></h1>
         </div>
 
@@ -36,20 +36,21 @@
             </div>
         </div>
 
-        <!-- Payment Method -->
-        <div class="form-section">
-            <h2>PAYMENT METHOD</h2>
-            <div class="payment-tabs">
-                <button class="tab-button active" data-tab="ewallet">E-WALLET</button>
-                <button class="tab-button" data-tab="voucher">VOUCHER</button>
-            </div>
+<!-- PEMBAYARAN -->
+    <div class="form-section">
+      <h2>Metode Pembayaran</h2>
+      <div class="payment-tabs">
+        <button class="tab-button active" data-tab="ewallet">E-Wallet</button>
+        <button class="tab-button" data-tab="bank">Bank</button>
+        <button class="tab-button" data-tab="retail">Retail</button>
+        <button class="tab-button" data-tab="pulsa">Pulsa</button>
+      </div>
 
-            <div class="tab-content active" id="ewallet">
-                <div class="card-payment-row">
-                    <!-- Payment methods loaded by JS -->
-                </div>
-            </div>
-        </div>
+      <div class="tab-content active" id="ewallet"></div>
+      <div class="tab-content" id="bank"></div>
+      <div class="tab-content" id="retail"></div>
+      <div class="tab-content" id="pulsa"></div>
+    </div>
 
         <!-- Order Summary -->
         <div class="summary-box">
@@ -80,6 +81,6 @@
         </div>
     </div>
 
-    <script src="../js/pubgml.js"></script>
+<script type="module" src="../js/game.js"></script>
 </body>
 </html>

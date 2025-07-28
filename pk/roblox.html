@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Up Roblox</title>
-  <link rel="stylesheet" href="../css/roblox.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up Robloc</title>
+  <link rel="stylesheet" href="../css/roblox.css" />
 </head>
 <body>
   <div class="container">
 
     <!-- HEADER GAME -->
     <div class="header-game">
-      <img src="../asset/g/roblox/roblox.png" alt="Roblox">
+      <img src="../asset/g/roblox/roblox.png" alt="Valorant" />
       <h1>Roblox <span>TOP UP</span></h1>
     </div>
-
+    
     <!-- FORM INPUT -->
     <div class="form-section">
       <h2>Data Akun</h2>
@@ -37,15 +37,13 @@
       </div>
     </div>
 
-    <!-- PILIH PRODUK -->
+    <!-- PRODUK -->
     <div class="form-section">
       <h2>Pilih Produk</h2>
-      <div class="produk-list" id="produkList">
-        <!-- Produk akan diisi oleh JavaScript -->
-      </div>
+      <div class="produk-list" id="produkList"></div>
     </div>
 
-    <!-- METODE PEMBAYARAN -->
+    <!-- PEMBAYARAN -->
     <div class="form-section">
       <h2>Metode Pembayaran</h2>
       <div class="payment-tabs">
@@ -55,75 +53,10 @@
         <button class="tab-button" data-tab="pulsa">Pulsa</button>
       </div>
 
-      <div class="tab-content active" id="ewallet">
-        <div class="card-payment-row">
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="saldo">
-            <img src="../asset/logo/saldo.png" alt="Saldo Website">
-            <span>Saldo Website</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="qris">
-            <img src="../asset/logo/qris.png" alt="QRIS">
-            <span>QRIS</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="dana">
-            <img src="../asset/logo/dana.png" alt="DANA">
-            <span>DANA</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="shopeepay">
-            <img src="../asset/logo/shopeepay.png" alt="ShopeePay">
-            <span>ShopeePay</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="tab-content" id="bank">
-        <div class="card-payment-row">
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="bca">
-            <img src="../asset/logo/bca.png" alt="BCA">
-            <span>BCA</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="bri">
-            <img src="../asset/logo/bri.png" alt="BRI">
-            <span>BRI</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="tab-content" id="retail">
-        <div class="card-payment-row">
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="alfamart">
-            <img src="../asset/logo/alfamart.png" alt="Alfamart">
-            <span>Alfamart</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="indomaret">
-            <img src="../asset/logo/indomaret.png" alt="Indomaret">
-            <span>Indomaret</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="tab-content" id="pulsa">
-        <div class="card-payment-row">
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="telkomsel">
-            <img src="../asset/logo/telkomsel.png" alt="Telkomsel">
-            <span>Telkomsel</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="tri">
-            <img src="../asset/logo/tri.png" alt="Tri">
-            <span>Tri</span>
-          </label>
-        </div>
-      </div>
+      <div class="tab-content active" id="ewallet"></div>
+      <div class="tab-content" id="bank"></div>
+      <div class="tab-content" id="retail"></div>
+      <div class="tab-content" id="pulsa"></div>
     </div>
 
     <!-- KONTAK -->
@@ -131,15 +64,15 @@
       <h2>Informasi Kontak</h2>
       <div class="input-group">
         <label>Email</label>
-        <input type="email" id="email" placeholder="email@anda.com" required>
+        <input type="email" id="email" placeholder="email@anda.com" required />
       </div>
       <div class="input-group">
         <label>Nomor WhatsApp (Opsional)</label>
-        <input type="tel" id="whatsapp" placeholder="08123456789">
+        <input type="tel" id="whatsapp" placeholder="08123456789" />
       </div>
     </div>
 
-    <!-- RINGKASAN PEMBAYARAN -->
+    <!-- RINGKASAN -->
     <div class="form-section">
       <h2>Ringkasan Pembayaran</h2>
       <div class="summary-box">
@@ -162,16 +95,16 @@
       </div>
     </div>
 
-    <!-- TOMBOL CHECKOUT -->
+    <!-- CHECKOUT -->
     <div class="form-section">
       <button id="checkoutBtn" class="checkout-btn">Bayar Sekarang</button>
       <div class="security-badges">
         <div class="badge">
-          <img src="assets/secure_icon.png" alt="Secure">
+          <img src="assets/secure_icon.png" alt="Secure" />
           <span>Pembayaran Aman</span>
         </div>
         <div class="badge">
-          <img src="assets/fast_icon.png" alt="Fast">
+          <img src="assets/fast_icon.png" alt="Fast" />
           <span>Proses Cepat</span>
         </div>
       </div>
@@ -179,6 +112,6 @@
 
   </div>
 
-  <script src="../js/roblox.js"></script>
+<script type="module" src="../js/game.js"></script>
 </body>
 </html>

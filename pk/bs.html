@@ -1,97 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blood Strike Diamonds</title>
-    <link rel="stylesheet" href="../css/bs.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up Blood Strike</title>
+  <link rel="stylesheet" href="../css/bs.css"/>
 </head>
-<body>
-    <div class="container">
-        <!-- HEADER GAME -->
-        <div class="header-game">
-            <img src="assets/blood_strike_logo.png" alt="Blood Strike">
-            <h1>Blood Strike <span>TOP UP</span></h1>
-        </div>
+<body data-game="Blood Strike">
+  <div class="container">
 
-        <!-- FORM INPUT -->
-        <div class="form-section">
-            <h2>Player Information</h2>
-            <div class="input-group">
-                <label>Player ID</label>
-                <input type="text" id="playerId" placeholder="Your Blood Strike ID" required>
-                <small>Found in your profile</small>
-            </div>
-        </div>
-
-        <!-- PILIH PRODUK -->
-        <div class="form-section">
-            <h2>Select Diamonds</h2>
-            <div class="produk-list" id="produkList">
-                <!-- Produk akan diisi oleh JavaScript -->
-            </div>
-        </div>
-
-        <!-- METODE PEMBAYARAN -->
-        <div class="form-section">
-            <h2>Payment Method</h2>
-            <div class="payment-methods" id="paymentMethods">
-                <!-- Metode pembayaran akan diisi oleh JavaScript -->
-            </div>
-        </div>
-
-        <!-- KONTAK -->
-        <div class="form-section">
-            <h2>Contact Information</h2>
-            <div class="input-group">
-                <label>Email</label>
-                <input type="email" id="email" placeholder="email@example.com" required>
-            </div>
-            <div class="input-group">
-                <label>WhatsApp (Optional)</label>
-                <input type="tel" id="whatsapp" placeholder="+628123456789">
-            </div>
-        </div>
-
-        <!-- RINGKASAN PEMBAYARAN -->
-        <div class="form-section">
-            <h2>Order Summary</h2>
-            <div class="summary-box">
-                <div class="summary-item">
-                    <span>Diamonds:</span>
-                    <span id="selectedProduct">-</span>
-                </div>
-                <div class="summary-item">
-                    <span>Price:</span>
-                    <span id="productPrice">$0.00</span>
-                </div>
-                <div class="summary-item">
-                    <span>Bonus:</span>
-                    <span id="bloodBonus">+0%</span>
-                </div>
-                <div class="summary-total">
-                    <span>Total Payment:</span>
-                    <span id="totalPayment">$0.00</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- TOMBOL CHECKOUT -->
-        <div class="form-section">
-            <button id="checkoutBtn" class="checkout-btn">Purchase Now</button>
-            <div class="security-badges">
-                <div class="badge">
-                    <img src="assets/secure_icon.png" alt="Secure">
-                    <span>Secure Payment</span>
-                </div>
-                <div class="badge">
-                    <img src="assets/fast_icon.png" alt="Fast">
-                    <span>Instant Delivery</span>
-                </div>
-            </div>
-        </div>
+    <!-- HEADER GAME -->
+    <div class="header-game">
+      <img src="../asset/g/bs/bs.jpg" alt="Blood Strike" onerror="this.src='../asset/icon/fallback.png'">
+      <h1>Blood Strike <span>TOP UP</span></h1>
     </div>
 
-    <script src="../js/bs.js"></script>
+    <!-- FORM INPUT -->
+    <div class="form-section">
+      <h2>Player Information</h2>
+      <div class="input-group">
+        <label>Player ID</label>
+        <input type="text" id="playerId" placeholder="Your Blood Strike ID" required />
+        <small>Found in your profile</small>
+      </div>
+    </div>
+
+    <!-- PILIH PRODUK -->
+    <div class="form-section">
+      <h2>Pilih Produk</h2>
+      <div class="produk-list" id="produkList">
+        <!-- Produk akan diisi oleh game.js -->
+      </div>
+    </div>
+
+    <!-- METODE PEMBAYARAN -->
+    <div class="form-section">
+      <h2>Metode Pembayaran</h2>
+      <div class="payment-tabs">
+        <button class="tab-button active" data-tab="ewallet">E-Wallet</button>
+        <button class="tab-button" data-tab="bank">Bank</button>
+        <button class="tab-button" data-tab="retail">Retail</button>
+        <button class="tab-button" data-tab="pulsa">Pulsa</button>
+      </div>
+      <div class="tab-content active" id="ewallet"></div>
+      <div class="tab-content" id="bank"></div>
+      <div class="tab-content" id="retail"></div>
+      <div class="tab-content" id="pulsa"></div>
+    </div>
+
+    <!-- KONTAK -->
+    <div class="form-section">
+      <h2>Informasi Kontak</h2>
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="email@anda.com" required />
+      </div>
+      <div class="input-group">
+        <label>Nomor WhatsApp (Opsional)</label>
+        <input type="tel" id="whatsapp" placeholder="08123456789" />
+      </div>
+    </div>
+
+    <!-- RINGKASAN PEMBAYARAN -->
+    <div class="form-section">
+      <h2>Ringkasan Pembayaran</h2>
+      <div class="summary-box">
+        <div class="summary-item">
+          <span>Produk:</span>
+          <span id="selectedProduct">-</span>
+        </div>
+        <div class="summary-item">
+          <span>Harga Produk:</span>
+          <span id="productPrice">Rp 0</span>
+        </div>
+        <div class="summary-item">
+          <span>Pajak (10%):</span>
+          <span id="taxAmount">Rp 0</span>
+        </div>
+        <div class="summary-total">
+          <span>Total Pembayaran:</span>
+          <span id="totalPayment">Rp 0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOMBOL CHECKOUT -->
+    <div class="form-section">
+      <button id="checkoutBtn" class="checkout-btn">Bayar Sekarang</button>
+      <div class="security-badges">
+        <div class="badge">
+          <img src="../asset/icon/secure.png" alt="Secure" onerror="this.src='../asset/icon/fallback.png'">
+          <span>Pembayaran Aman</span>
+        </div>
+        <div class="badge">
+          <img src="../asset/icon/fast.png" alt="Fast" onerror="this.src='../asset/icon/fallback.png'">
+          <span>Proses Cepat</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="../js/game.js"></script>
 </body>
 </html>

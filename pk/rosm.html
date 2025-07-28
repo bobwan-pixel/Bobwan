@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rules of Survival Diamonds</title>
-    <link rel="stylesheet" href="../css/rosm.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Up Rules Of Survivak</title>
+  <link rel="stylesheet" href="../css/rosm.css">
+  <script defer src="js/header.js"></script>
 </head>
 <body>
-    <div class="container">
-        <!-- ROS Header -->
-        <div class="header-game">
-            <img src="assets/ros_logo.png" alt="Rules of Survival Logo">
-            <h1>BATTLE DIAMONDS</h1>
-            <p class="subtitle">Upgrade your survival gear</p>
-        </div>
+  
+    <div id="header-container"></div>
+  
+  <div class="container">
 
+    <!-- HEADER GAME -->
+    <div class="header-game">
+      <img src="../asset/g/ros/ros.jpg" alt="Call of Duty Mobile">
+      <h1>Rusel Of Survival <span>TOP UP</span></h1>
+    </div>
         <!-- Player Information -->
         <div class="form-section">
-            <h2><img src="assets/icon_soldier.png" class="section-icon"> SOLDIER PROFILE</h2>
+            <h2>SOLDIER PROFILE</h2>
             <div class="input-group">
                 <label for="playerId">PLAYER ID</label>
                 <input type="text" id="playerId" placeholder="Your ROS ID">
@@ -29,67 +31,84 @@
             </div>
         </div>
 
-        <!-- Diamond Packages -->
-        <div class="form-section">
-            <h2><img src="assets/icon_diamond.png" class="section-icon"> DIAMOND PACKAGES</h2>
-            <div class="produk-list" id="produkList">
-                <!-- Products loaded by JS -->
-            </div>
-        </div>
-
-        <!-- Payment Method -->
-        <div class="form-section">
-            <h2><img src="assets/icon_payment.png" class="section-icon"> PAYMENT METHOD</h2>
-            <div class="payment-tabs">
-                <button class="tab-button active" data-tab="ewallet">E-WALLET</button>
-                <button class="tab-button" data-tab="bank">BANK</button>
-                <button class="tab-button" data-tab="voucher">VOUCHER</button>
-            </div>
-
-            <div class="tab-content active" id="ewallet">
-                <div class="card-payment-row">
-                    <!-- Payment methods loaded by JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Order Summary -->
-        <div class="summary-box">
-            <h3>MISSION BRIEFING</h3>
-            <div class="summary-item">
-                <span>Diamonds:</span>
-                <span id="selectedProduct">-</span>
-            </div>
-            <div class="summary-item">
-                <span>Price:</span>
-                <span id="productPrice">$0.00</span>
-            </div>
-            <div class="summary-item highlight">
-                <span>Bonus:</span>
-                <span id="rosBonus">+0%</span>
-            </div>
-            <div class="summary-total">
-                <span>TOTAL:</span>
-                <span id="totalPayment">$0.00</span>
-            </div>
-            <button id="checkoutBtn" class="checkout-btn">
-                PURCHASE DIAMONDS
-            </button>
-        </div>
-
-        <!-- Security Badges -->
-        <div class="security-badges">
-            <div class="badge">
-                <img src="assets/icon_shield.png" alt="Shield">
-                <span>Secure Transaction</span>
-            </div>
-            <div class="badge">
-                <img src="assets/icon_verified.png" alt="Verified">
-                <span>Official Partner</span>
-            </div>
-        </div>
+    <!-- PILIH PRODUK -->
+    <div class="form-section">
+      <h2>Pilih Produk</h2>
+      <div class="produk-list" id="produkList">
+        <!-- Produk akan diisi oleh JavaScript -->
+      </div>
     </div>
 
-    <script src="../css/roms.js"></script>
+    <!-- METODE PEMBAYARAN --> 
+    <div class="form-section">
+      <h2>Metode Pembayaran</h2>
+      <div class="payment-tabs">
+        <button class="tab-button active" data-tab="ewallet">E-Wallet</button>
+        <button class="tab-button" data-tab="bank">Bank</button>
+        <button class="tab-button" data-tab="retail">Retail</button>
+        <button class="tab-button" data-tab="pulsa">Pulsa</button>
+      </div>
+
+      <div class="tab-content active" id="ewallet"></div>
+      <div class="tab-content" id="bank"></div>
+      <div class="tab-content" id="retail"></div>
+      <div class="tab-content" id="pulsa"></div>
+    </div>
+
+
+    <!-- KONTAK -->
+    <div class="form-section">
+      <h2>Informasi Kontak</h2>
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="email@anda.com" required>
+      </div>
+      <div class="input-group">
+        <label>Nomor WhatsApp (Opsional)</label>
+        <input type="tel" id="whatsapp" placeholder="08123456789">
+      </div>
+    </div>
+
+    <!-- RINGKASAN PEMBAYARAN -->
+    <div class="form-section">
+      <h2>Ringkasan Pembayaran</h2>
+      <div class="summary-box">
+        <div class="summary-item">
+          <span>Produk:</span>
+          <span id="selectedProduct">-</span>
+        </div>
+        <div class="summary-item">
+          <span>Harga Produk:</span>
+          <span id="productPrice">Rp 0</span>
+        </div>
+        <div class="summary-item">
+          <span>Pajak (10%):</span>
+          <span id="taxAmount">Rp 0</span>
+        </div>
+        <div class="summary-total">
+          <span>Total Pembayaran:</span>
+          <span id="totalPayment">Rp 0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOMBOL CHECKOUT -->
+    <div class="form-section">
+      <button id="checkoutBtn" class="checkout-btn">Bayar Sekarang</button>
+      <div class="security-badges">
+        <div class="badge">
+          <img src="assets/secure_icon.png" alt="Secure">
+          <span>Pembayaran Aman</span>
+        </div>
+        <div class="badge">
+          <img src="assets/fast_icon.png" alt="Fast">
+          <span>Proses Cepat</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="../js/game.js"></script>
 </body>
 </html>

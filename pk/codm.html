@@ -33,65 +33,20 @@
       </div>
     </div>
 
-    <!-- METODE PEMBAYARAN -->
-    <div class="form-section">
+  <div class="form-section">
       <h2>Metode Pembayaran</h2>
       <div class="payment-tabs">
         <button class="tab-button active" data-tab="ewallet">E-Wallet</button>
         <button class="tab-button" data-tab="bank">Bank</button>
         <button class="tab-button" data-tab="retail">Retail</button>
+        <button class="tab-button" data-tab="pulsa">Pulsa</button>
       </div>
 
-      <div class="tab-content active" id="ewallet">
-        <div class="card-payment-row">
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="qris">
-            <img src="assets/qris_icon.png" alt="QRIS">
-            <span>QRIS</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="dana">
-            <img src="assets/dana_icon.png" alt="DANA">
-            <span>DANA</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="shopeepay">
-            <img src="assets/shopeepay_icon.png" alt="ShopeePay">
-            <span>ShopeePay</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="tab-content" id="bank">
-        <div class="card-payment-row">
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="bca">
-            <img src="assets/bca_icon.png" alt="BCA">
-            <span>BCA</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="bri">
-            <img src="assets/bri_icon.png" alt="BRI">
-            <span>BRI</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="tab-content" id="retail">
-        <div class="card-payment-row">
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="alfamart">
-            <img src="assets/alfamart_icon.png" alt="Alfamart">
-            <span>Alfamart</span>
-          </label>
-          <label class="card-payment">
-            <input type="radio" name="metodePembayaran" value="indomaret">
-            <img src="assets/indomaret_icon.png" alt="Indomaret">
-            <span>Indomaret</span>
-          </label>
-        </div>
-      </div>
-    </div>
+      <div class="tab-content active" id="ewallet"></div>
+      <div class="tab-content" id="bank"></div>
+      <div class="tab-content" id="retail"></div>
+      <div class="tab-content" id="pulsa"></div>
+    </div
 
     <!-- KONTAK -->
     <div class="form-section">
@@ -146,6 +101,6 @@
 
   </div>
 
-  <script src="../js/codm.js"></script>
+  <script type="module" src="../js/game.js"></script>
 </body>
 </html>

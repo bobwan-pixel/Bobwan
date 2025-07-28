@@ -10,7 +10,7 @@
     <div class="container">
         <!-- HEADER GAME -->
         <div class="header-game">
-            <img src="assets/valorant_logo.png" alt="Valorant">
+            <img src="../asset/g/valo/valo.jpg" alt="Valorant">
             <h1>Valorant Points <span>TOP UP</span></h1>
         </div>
 
@@ -31,15 +31,23 @@
                 <!-- Produk akan diisi oleh JavaScript -->
             </div>
         </div>
+        
+    <!-- PEMBAYARAN -->
+    <div class="form-section">
+      <h2>Metode Pembayaran</h2>
+      <div class="payment-tabs">
+        <button class="tab-button active" data-tab="ewallet">E-Wallet</button>
+        <button class="tab-button" data-tab="bank">Bank</button>
+        <button class="tab-button" data-tab="retail">Retail</button>
+        <button class="tab-button" data-tab="pulsa">Pulsa</button>
+      </div>
 
-        <!-- METODE PEMBAYARAN -->
-        <div class="form-section">
-            <h2>Payment Method</h2>
-            <div class="payment-methods" id="paymentMethods">
-                <!-- Metode pembayaran akan diisi oleh JavaScript -->
-            </div>
-        </div>
-
+      <div class="tab-content active" id="ewallet"></div>
+      <div class="tab-content" id="bank"></div>
+      <div class="tab-content" id="retail"></div>
+      <div class="tab-content" id="pulsa"></div>
+    </div>
+    
         <!-- KONTAK -->
         <div class="form-section">
             <h2>Contact Information</h2>
@@ -92,6 +100,6 @@
         </div>
     </div>
 
-    <script src="../js/valoran.js"></script>
+    <script type="module" src="../js/game.js"></script>
 </body>
 </html>
