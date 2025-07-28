@@ -1,25 +1,58 @@
-<div class="header">
-  <img src="asset/logo/logo.png" alt="Logo" class="logo-img">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Header dengan Sidebar</title>
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
 
-  <div class="header-actions">
-    <button class="search-icon">
-      <img src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=FFFFFF" alt="Cari">
-    </button>
+  <!-- Header -->
+  <div class="header">
+    <img src="asset/logo/logo.png" alt="Logo" class="logo-img" />
 
-    <div class="saldo-user">ID/IDR : 0.00</div>
+    <div class="header-actions">
+      <button class="search-icon">
+        <img src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=FFFFFF" alt="Cari" />
+      </button>
 
-    <button id="burgerToggle" class="burger-btn">&#9776;</button>
+      <div class="saldo-user">ID/IDR : 0.00</div>
+
+      <button id="burgerToggle" class="burger-btn">&#9776;</button>
+    </div>
   </div>
-</div>
 
-<!-- Sidebar -->
-<div id="sidebar" class="sidebar">
-  <img src="asset/logo/logo.png" class="sidebar-logo" alt="Logo" />
-  <ul class="sidebar-menu">
-    <li><a href="#">Profile</a></li>
-    <li><a href="#">Topup Saldo</a></li>
-    <li><a href="#">Transaksi</a></li>
-    <li><a href="#">Rating</a></li>
-    <li><a href="#">Kalkulator</a></li>
-  </ul>
-</div>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <img src="asset/logo/logo.png" class="sidebar-logo" alt="Logo" />
+
+    <div class="sidebar-menu-card">
+      <a href="../auth/profile.html" class="sidebar-card">
+        <i class="fas fa-user-circle"></i>
+        <span>Profile</span>
+      </a>
+      <a href="topup.html" class="sidebar-card">
+        <i class="fas fa-wallet"></i>
+        <span>Topup Saldo</span>
+      </a>
+      <a href="transaksi.html" class="sidebar-card">
+        <i class="fas fa-history"></i>
+        <span>Transaksi</span>
+      </a>
+      <a href="rating.html" class="sidebar-card">
+        <i class="fas fa-star"></i>
+        <span>Rating</span>
+      </a>
+      <a href="kalkulator.html" class="sidebar-card">
+        <i class="fas fa-calculator"></i>
+        <span>Kalkulator</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="js/header.js"></script>
+</body>
+</html>

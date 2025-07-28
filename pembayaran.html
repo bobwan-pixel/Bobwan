@@ -22,14 +22,14 @@
         <p class="countdown-label">Selesaikan pembayaran dalam</p>
       </div>
     </div>
-    
+
     <div id="transaksi-container">
       <div class="loading">
         <div class="spinner"></div>
         <p>Memuat data transaksi...</p>
       </div>
     </div>
-    
+
     <div class="payment-instruction">
       <h2><i class="fas fa-info-circle"></i> Instruksi Pembayaran</h2>
       <ol>
@@ -37,12 +37,24 @@
         <li>Simpan bukti transfer</li>
         <li>Pembayaran akan diproses otomatis setelah transfer</li>
       </ol>
+      <p style="margin-top: 1rem; color: #ffcc00; font-weight: bold;">
+        ⚠️ Jika anda tidak login, sebaiknya screenshot bukti transaksi agar bisa claim garansi jika terjadi kesalahan sistem.<br>
+        (Lebih baik lagi jika Anda DAFTAR/LOGIN).
+      </p>
     </div>
-    
+
     <a href="index.html" class="button"><i class="fas fa-home"></i> Kembali ke Beranda</a>
   </div>
 
-  <!-- Firebase -->
+  <!-- POPUP TRANSAKSI -->
+  <div class="popup" id="popupTransaksi">
+    <div class="popup-card">
+      <h2><i class="fas fa-check-circle"></i> Transaksi Selesai</h2>
+      <div class="popup-content" id="popupContent"></div>
+      <button id="popupOkBtn" class="button">Oke</button>
+    </div>
+  </div>
+
   <script type="module" src="js/pembayaran.js"></script>
 </body>
 </html>
