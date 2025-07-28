@@ -2,11 +2,14 @@ let selectedProduct = null;
 let selectedPayment = null;
 
 const products = [
-  { id: 1, name: "60 UC", price: 12000, image: "../asset/g/pubg/uc1.png", bestSeller: true },
-  { id: 2, name: "300+25 UC", price: 60000, image: "../asset/g/pubg/uc2.png" },
-  { id: 3, name: "600+60 UC", price: 120000, image: "../asset/g/pubg/uc3.png", popular: true },
-  { id: 4, name: "1500+300 UC", price: 300000, image: "../asset/g/pubg/uc4.png" },
-  { id: 5, name: "3000+850 UC", price: 600000, image: "../asset/g/pubg/uc5.png" }
+  { id: 1, name: "420 Riot Points", price: 10000, image: "../asset/g/lol/rp.png", bestSeller: true },
+  { id: 2, name: "990 Riot Points", price: 20000, image: "../asset/g/lol/rp.png" },
+  { id: 3, name: "1500 Riot Points", price: 30000, image: "../asset/g/lol/rp.png", popular: true },
+  { id: 4, name: "2450 Riot Points", price: 50000, image: "../asset/g/lol/rp.png" },
+  { id: 5, name: "4000 Riot Points", price: 80000, image: "../asset/g/lol/rp.png" },
+  { id: 6, name: "6500 Riot Points", price: 120000, image: "../asset/g/lol/rp.png" },
+  { id: 7, name: "Monthly Pass", price: 75000, image: "../asset/g/lol/rp.png" },
+  { id: 8, name: "Event Pass", price: 125000, image: "../asset/g/lol/rp.png" }
 ];
 
 // Metode Pembayaran

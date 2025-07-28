@@ -1,44 +1,47 @@
-// Data Produk Valorant
+let selectedProduct = null;
+let selectedPayment = null;
+
 const products = [
-    { id: 1, name: "100 PB Cash", price: 10000, image: "assets/pb_cash_icon.png", bestSeller: true },
-    { id: 2, name: "250 PB Cash", price: 25000, image: "assets/pb_cash_icon.png" },
-    { id: 3, name: "500 PB Cash", price: 50000, image: "assets/pb_cash_icon.png", popular: true },
-    { id: 4, name: "1000 PB Cash", price: 100000, image: "assets/pb_cash_icon.png" },
-    { id: 5, name: "2500 PB Cash", price: 250000, image: "assets/pb_cash_icon.png" },
-    { id: 6, name: "5000 PB Cash", price: 500000, image: "assets/pb_cash_icon.png" }
+    { id: 1, name: "100 PB Cash", price: 10000, image: "../asset/g/pb/pb1.png", bestSeller: true },
+    { id: 2, name: "250 PB Cash", price: 25000, image: "../asset/g/pb/pb1.png" },
+    { id: 3, name: "500 PB Cash", price: 50000, image: "../asset/g/pb/pb1.png", popular: true },
+    { id: 4, name: "1000 PB Cash", price: 100000, image: "../asset/g/pb/pb1.png" },
+    { id: 5, name: "2500 PB Cash", price: 250000, image: "../asset/g/pb/pb1.png" },
+    { id: 6, name: "5000 PB Cash", price: 500000, image: "../asset/g/pb/pb1.png" }
 ];
 
-// Data Metode Pembayaran
+// Metode Pembayaran
 const paymentMethods = {
   ewallet: [
-    { id: "qris", name: "QRIS", image: "assets/qris_icon.png" },
-    { id: "dana", name: "DANA", image: "assets/dana_icon.png" },
-    { id: "shopeepay", name: "ShopeePay", image: "assets/shopeepay_icon.png" }
+    { id: "qris", name: "QRIS", image: "../asset/logo/qris.png" },
+    { id: "dana", name: "DANA", image: "../asset/logo/dana.png" },
+    { id: "shopeepay", name: "ShopeePay", image: "../asset/logo/shopeepay.png" },
+    { id: "ovo", name: "OVO", image: "../asset/logo/ovo.png" },
+    { id: "gopay", name: "GOPAY", image: "../asset/logo/gopay.png" },
+    { id: "linkaja", name: "LINKAJA", image: "../asset/logo/linkaja.png" }
   ],
   bank: [
-    { id: "bca", name: "BCA", image: "assets/bca_icon.png" },
-    { id: "bri", name: "BRI", image: "assets/bri_icon.png" }
+    { id: "bca", name: "BCA", image: "../asset/logo/bca.png" },
+    { id: "bri", name: "BRI", image: "../asset/logo/bri.png" },
+    { id: "mandiri", name: "Mandiri", image: "../asset/logo/mandiri.png" }
   ],
   retail: [
-    { id: "alfamart", name: "Alfamart", image: "assets/alfamart_icon.png" },
-    { id: "indomaret", name: "Indomaret", image: "assets/indomaret_icon.png" }
+    { id: "alfamart", name: "Alfamart", image: "../asset/logo/alfamart.png" },
+    { id: "indomaret", name: "Indomaret", image: "../asset/logo/indomaret.png" }
   ],
   pulsa: [
-    { id: "tri", name: "Tri", image: "assets/tri_icon.png" },
-    { id: "telkomsel", name: "Telkomsel", image: "assets/telkomsel_icon.png" },
-    { id: "xl", name: "XL", image: "assets/xl_icon.png" },
-    { id: "indosat", name: "Indosat", image: "assets/indosat_icon.png" }
+    { id: "tri", name: "Tri", image: "../asset/logo/tri.png" },
+    { id: "telkomsel", name: "Telkomsel", image: "../asset/logo/telkomsel.png" },
+    { id: "xl", name: "XL", image: "../asset/logo/xl.png" },
+    { id: "indosat", name: "Indosat", image: "../asset/logo/indosat.png" }
   ]
 };
 
-// Variabel Global
-let selectedProduct = null;
-let selectedPayment = null;
-const TAX_RATE = 0.1;
-
-// Load produk ke halaman
+// Load daftar produk
 function loadProducts() {
   const produkList = document.getElementById('produkList');
+  if (!produkList) return;
+
   produkList.innerHTML = '';
 
   products.forEach(product => {
@@ -49,11 +52,10 @@ function loadProducts() {
 
     let badge = '';
     if (product.bestSeller) badge = '<div class="badge">Best Value</div>';
-    else if (product.popular) badge = '<div class="badge">Populer</div>';
 
     card.innerHTML = `
       ${badge}
-      <img src="${product.image}" alt="${product.name}">
+      <img src="${product.image}" alt="${product.name}" onerror="this.src='../asset/icon/fallback.png'">
       <h3>${product.name}</h3>
       <p>Rp ${product.price.toLocaleString('id-ID')}</p>
     `;
@@ -64,17 +66,17 @@ function loadProducts() {
 }
 
 // Pilih produk
-function selectProduct(element, product) {
-  document.querySelectorAll('.produk-card').forEach(card => card.classList.remove('selected'));
-  element.classList.add('selected');
+function selectProduct(card, product) {
+  document.querySelectorAll('.produk-card').forEach(el => el.classList.remove('selected'));
+  card.classList.add('selected');
   selectedProduct = product;
   updateSummary();
 }
 
-// Ringkasan Pembayaran
+// Tampilkan ringkasan
 function updateSummary() {
   const price = selectedProduct?.price || 0;
-  const tax = Math.round(price * TAX_RATE);
+  const tax = Math.round(price * 0.1); // Pajak 10%
   const total = price + tax;
 
   document.getElementById('selectedProduct').textContent = selectedProduct?.name || "-";
@@ -83,72 +85,21 @@ function updateSummary() {
   document.getElementById('totalPayment').textContent = `Rp ${total.toLocaleString('id-ID')}`;
 }
 
-// Validasi Form
-function validateForm() {
-  const id = document.getElementById('playerId').value.trim();
-  const email = document.getElementById('email').value.trim();
-
-  if (!id) return alert("Masukkan ID Anda");
-  if (!/^\S+@\S+\.\S+$/.test(email)) return alert("Masukkan email yang valid");
-  if (!selectedProduct) return alert("Pilih produk terlebih dahulu");
-  if (!selectedPayment) return alert("Pilih metode pembayaran");
-
-  return true;
-}
-
-// Proses Checkout
-function processCheckout() {
-  if (!validateForm()) return;
-
-  const price = selectedProduct.price;
-  const tax = Math.round(price * TAX_RATE);
-  const total = price + tax;
-
-  const order = {
-    playerId: document.getElementById('playerId').value,
-    email: document.getElementById('email').value,
-    whatsapp: document.getElementById('whatsapp').value || null,
-    product: selectedProduct.name,
-    price,
-    tax,
-    total,
-    paymentMethod: selectedPayment.name,
-    timestamp: new Date().toISOString()
-  };
-
-  localStorage.setItem('orderData', JSON.stringify(order));
-  window.location.href = "../pembayaran.html";
-}
-
-// Inisialisasi
-document.addEventListener('DOMContentLoaded', () => {
-  loadProducts();
-
-  // Tab Button Event
-  document.querySelectorAll('.tab-button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-    });
-  });
-
-  // Load metode pembayaran
-  for (const tab in paymentMethods) {
-    const container = document.getElementById(tab);
+// Load metode pembayaran
+function loadPaymentMethods() {
+  for (const group in paymentMethods) {
+    const container = document.getElementById(group);
     if (!container) continue;
 
     const row = document.createElement('div');
     row.className = 'card-payment-row';
 
-    paymentMethods[tab].forEach(method => {
+    paymentMethods[group].forEach(method => {
       const label = document.createElement('label');
       label.className = 'card-payment';
       label.innerHTML = `
         <input type="radio" name="metodePembayaran" value="${method.id}">
-        <img src="${method.image}" alt="${method.name}">
+        <img src="${method.image}" alt="${method.name}" onerror="this.src='../asset/logo/fallback.png'">
         <span>${method.name}</span>
       `;
 
@@ -162,7 +113,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.appendChild(row);
   }
+}
 
-  // Checkout Button
+// Checkout
+function processCheckout(e) {
+  e.preventDefault();
+
+  if (!selectedProduct || !selectedPayment) {
+    alert("Silakan pilih produk dan metode pembayaran.");
+    return;
+  }
+
+  // Simulasi redirect ke pembayaran
+  window.location.href = "../pembayaran.html";
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  loadProducts();
+  loadPaymentMethods();
   document.getElementById('checkoutBtn').addEventListener('click', processCheckout);
+
+  // Tab switching functionality
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const tabId = button.dataset.tab;
+      
+      // Update active tab button
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Update active tab content
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    });
+  });
 });

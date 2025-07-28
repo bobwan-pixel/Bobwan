@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Tutup sidebar jika klik di luar
   document.addEventListener("click", (e) => {
     if (
       sidebar.classList.contains("open") &&

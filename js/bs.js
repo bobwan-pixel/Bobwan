@@ -1,151 +1,150 @@
-// BS.JS with COC structure
-// DATA PRODUK
-const products = [
-  { id: 1, name: "100 Diamonds", price: 0.99, image: "assets/diamond_icon.png", bonus: "+5%", bestSeller: true },
-  { id: 2, name: "500 Diamonds", price: 4.99, image: "assets/diamond_icon.png", bonus: "+10%" },
-  { id: 3, name: "1200 Diamonds", price: 9.99, image: "assets/diamond_icon.png", bonus: "+15%" },
-  { id: 4, name: "2500 Diamonds", price: 19.99, image: "assets/diamond_icon.png", bonus: "+20%" }
-];
-
-// METODE PEMBAYARAN
-const paymentMethods = [
-  { id: "paypal", name: "PayPal", image: "assets/paypal_icon.png" },
-  { id: "skrill", name: "Skrill", image: "assets/skrill_icon.png" },
-  { id: "visa", name: "Visa", image: "assets/visa_icon.png" },
-  { id: "mastercard", name: "Mastercard", image: "assets/mastercard_icon.png" },
-  { id: "bitcoin", name: "Bitcoin", image: "assets/bitcoin_icon.png" },
-  { id: "ethereum", name: "Ethereum", image: "assets/ethereum_icon.png" }
-];
-
-// GLOBAL VAR
 let selectedProduct = null;
 let selectedPayment = null;
 
-// LOAD PRODUK
+// Produk
+const products = [
+  { id: 1, name: "100 Diamonds", price: 15000, image: "../asset/g/bs/gd1.png", bonus: "+5%", bestSeller: true },
+  { id: 2, name: "500 Diamonds", price: 75000, image: "../asset/g/bs/gd1.png", bonus: "+10%" },
+  { id: 3, name: "1200 Diamonds", price: 150000, image: "../asset/g/bs/gd2.png", bonus: "+15%" },
+  { id: 4, name: "2500 Diamonds", price: 300000, image: "../asset/g/bs/gd2.png", bonus: "+20%" }
+];
+
+// Metode Pembayaran
+const paymentMethods = {
+  ewallet: [
+    { id: "qris", name: "QRIS", image: "../asset/logo/qris.png" },
+    { id: "dana", name: "DANA", image: "../asset/logo/dana.png" },
+    { id: "shopeepay", name: "ShopeePay", image: "../asset/logo/shopeepay.png" },
+    { id: "ovo", name: "OVO", image: "../asset/logo/ovo.png" },
+    { id: "gopay", name: "GOPAY", image: "../asset/logo/gopay.png" },
+    { id: "linkaja", name: "LINKAJA", image: "../asset/logo/linkaja.png" }
+  ],
+  bank: [
+    { id: "bca", name: "BCA", image: "../asset/logo/bca.png" },
+    { id: "bri", name: "BRI", image: "../asset/logo/bri.png" },
+    { id: "mandiri", name: "Mandiri", image: "../asset/logo/mandiri.png" }
+  ],
+  retail: [
+    { id: "alfamart", name: "Alfamart", image: "../asset/logo/alfamart.png" },
+    { id: "indomaret", name: "Indomaret", image: "../asset/logo/indomaret.png" }
+  ],
+  pulsa: [
+    { id: "tri", name: "Tri", image: "../asset/logo/tri.png" },
+    { id: "telkomsel", name: "Telkomsel", image: "../asset/logo/telkomsel.png" },
+    { id: "xl", name: "XL", image: "../asset/logo/xl.png" },
+    { id: "indosat", name: "Indosat", image: "../asset/logo/indosat.png" }
+  ]
+};
+
+// Load daftar produk
 function loadProducts() {
   const produkList = document.getElementById('produkList');
+  if (!produkList) return;
+
   produkList.innerHTML = '';
 
   products.forEach(product => {
-    const productCard = document.createElement('div');
-    productCard.className = 'produk-card';
-    productCard.dataset.id = product.id;
-    productCard.dataset.price = product.price;
+    const card = document.createElement('div');
+    card.className = 'produk-card';
+    card.dataset.id = product.id;
+    card.dataset.price = product.price;
 
     let badge = '';
-    if (product.bestSeller) {
-      badge = '<div class="badge">BEST</div>';
-    }
+    if (product.bestSeller) badge = '<div class="badge">Best Value</div>';
 
-    productCard.innerHTML = `
+    card.innerHTML = `
       ${badge}
-      <img src="${product.image}" alt="${product.name}">
+      <img src="${product.image}" alt="${product.name}" onerror="this.src='../asset/icon/fallback.png'">
       <h3>${product.name}</h3>
-      <p>$${product.price.toFixed(2)}</p>
-      <small>${product.bonus} Bonus</small>
+      <p>Rp ${product.price.toLocaleString('id-ID')}</p>
     `;
 
-    productCard.addEventListener('click', () => selectProduct(productCard, product));
-    produkList.appendChild(productCard);
+    card.addEventListener('click', () => selectProduct(card, product));
+    produkList.appendChild(card);
   });
 }
 
-function selectProduct(element, product) {
-  document.querySelectorAll('.produk-card').forEach(card => card.classList.remove('selected'));
-  element.classList.add('selected');
+// Pilih produk
+function selectProduct(card, product) {
+  document.querySelectorAll('.produk-card').forEach(el => el.classList.remove('selected'));
+  card.classList.add('selected');
   selectedProduct = product;
   updateSummary();
 }
 
-// LOAD PAYMENT
-function loadPaymentMethods() {
-  const container = document.getElementById('paymentMethods');
-  container.innerHTML = '';
-
-  paymentMethods.forEach(method => {
-    const el = document.createElement('div');
-    el.className = 'payment-method';
-    el.dataset.id = method.id;
-
-    el.innerHTML = `
-      <img src="${method.image}" alt="${method.name}">
-      <span>${method.name}</span>
-    `;
-
-    el.addEventListener('click', () => selectPaymentMethod(el, method));
-    container.appendChild(el);
-  });
-}
-
-function selectPaymentMethod(el, method) {
-  document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedPayment = method;
-  updateSummary();
-}
-
+// Tampilkan ringkasan
 function updateSummary() {
-  const productSummary = document.getElementById('selectedProduct');
-  const productPriceElement = document.getElementById('productPrice');
-  const bloodBonusElement = document.getElementById('bloodBonus');
-  const totalPaymentElement = document.getElementById('totalPayment');
+  const price = selectedProduct?.price || 0;
+  const tax = Math.round(price * 0.1); // Pajak 10%
+  const total = price + tax;
 
-  if (selectedProduct) {
-    productSummary.textContent = selectedProduct.name;
-    productPriceElement.textContent = `$${selectedProduct.price.toFixed(2)}`;
-    bloodBonusElement.textContent = selectedProduct.bonus;
-    totalPaymentElement.textContent = `$${selectedProduct.price.toFixed(2)}`;
+  document.getElementById('selectedProduct').textContent = selectedProduct?.name || "-";
+  document.getElementById('productPrice').textContent = `Rp ${price.toLocaleString('id-ID')}`;
+  document.getElementById('taxAmount').textContent = `Rp ${tax.toLocaleString('id-ID')}`;
+  document.getElementById('totalPayment').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+}
+
+// Load metode pembayaran
+function loadPaymentMethods() {
+  for (const group in paymentMethods) {
+    const container = document.getElementById(group);
+    if (!container) continue;
+
+    const row = document.createElement('div');
+    row.className = 'card-payment-row';
+
+    paymentMethods[group].forEach(method => {
+      const label = document.createElement('label');
+      label.className = 'card-payment';
+      label.innerHTML = `
+        <input type="radio" name="metodePembayaran" value="${method.id}">
+        <img src="${method.image}" alt="${method.name}" onerror="this.src='../asset/logo/fallback.png'">
+        <span>${method.name}</span>
+      `;
+
+      label.querySelector('input').addEventListener('change', () => {
+        selectedPayment = method;
+        updateSummary();
+      });
+
+      row.appendChild(label);
+    });
+
+    container.appendChild(row);
   }
 }
 
-function validateForm() {
-  const playerId = document.getElementById('playerId').value.trim();
-  const email = document.getElementById('email').value.trim();
+// Checkout
+function processCheckout(e) {
+  e.preventDefault();
 
-  if (!playerId) {
-    alert('Please enter your Player ID');
-    return false;
+  if (!selectedProduct || !selectedPayment) {
+    alert("Silakan pilih produk dan metode pembayaran.");
+    return;
   }
 
-  if (!email.match(/^\S+@\S+\.\S+$/)) {
-    alert('Please enter a valid email address');
-    return false;
-  }
-
-  if (!selectedProduct) {
-    alert('Please select a diamond package');
-    return false;
-  }
-
-  if (!selectedPayment) {
-    alert('Please select a payment method');
-    return false;
-  }
-
-  return true;
+  // Simulasi redirect ke pembayaran
+  window.location.href = "../pembayaran.html";
 }
 
-function processCheckout() {
-  if (validateForm()) {
-    const orderData = {
-      game: "Blood Strike",
-      playerId: document.getElementById('playerId').value.trim(),
-      product: selectedProduct.name,
-      price: selectedProduct.price,
-      bonus: selectedProduct.bonus,
-      paymentMethod: selectedPayment.name,
-      email: document.getElementById('email').value.trim(),
-      whatsapp: document.getElementById('whatsapp').value.trim() || null,
-      timestamp: new Date().toISOString()
-    };
-
-    localStorage.setItem('bloodStrikeOrder', JSON.stringify(orderData));
-    window.location.href = "payment.html";
-  }
-}
-
+// Init
 document.addEventListener('DOMContentLoaded', () => {
   loadProducts();
   loadPaymentMethods();
   document.getElementById('checkoutBtn').addEventListener('click', processCheckout);
+
+  // Tab switching functionality
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const tabId = button.dataset.tab;
+      
+      // Update active tab button
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Update active tab content
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    });
+  });
 });

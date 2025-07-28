@@ -1,45 +1,49 @@
-// Data Produk Free Fire
+let selectedProduct = null;
+let selectedPayment = null;
+
 const products = [
-  { id: 1, name: "70 Diamonds", price: 10000, image: "assets/g/ff/70dm.png", bestSeller: true },
-  { id: 2, name: "140 Diamonds", price: 19000, image: "assets/g/ff/140dm.png" },
-  { id: 3, name: "355 Diamonds", price: 48000, image: "assets/g/ff/355dm.png", popular: true },
-  { id: 4, name: "720 Diamonds", price: 95000, image: "assets/g/ff/720dm.png" },
-  { id: 5, name: "1000+100 Diamonds", price: 135000, image: "assets/g/ff/1100dm.png" },
-  { id: 6, name: "Membership Weekly", price: 31000, image: "assets/g/ff/weekly.png" },
-  { id: 7, name: "Membership Monthly", price: 125000, image: "assets/g/ff/monthly.png" }
+  { id: 1, name: "70 Diamonds", price: 10000, image: "../asset/g/ff/dm1.png", bestSeller: true },
+  { id: 2, name: "140 Diamonds", price: 19000, image: "../asset/g/ff/dm1.png" },
+  { id: 3, name: "355 Diamonds", price: 48000, image: "../asset/g/ff/dm2.png", popular: true },
+  { id: 4, name: "720 Diamonds", price: 95000, image: "../asset/g/ff/dm2.png" },
+  { id: 5, name: "1000+100 Diamonds", price: 135000, image: "../asset/g/ff/dm2.png" },
+  { id: 6, name: "1800 Diamond", price: 31000, image: "../asset/g/ff/dm2.png" },
+  { id: 7, name: "2000 Diamond", price: 125000, image: "../asset/g/ff/dm2.png" }
 ];
 
 // Metode Pembayaran
 const paymentMethods = {
   ewallet: [
-    { id: "qris", name: "QRIS", image: "assets/logo/qris.png" },
-    { id: "dana", name: "DANA", image: "assets/logo/dana.png" },
-    { id: "shopeepay", name: "ShopeePay", image: "assets/logo/shopeepay.png" },
-    { id: "gopay", name: "GoPay", image: "assets/logo/gopay.png" },
-    { id: "ovo", name: "OVO", image: "assets/logo/ovo.png" }
+    { id: "qris", name: "QRIS", image: "../asset/logo/qris.png" },
+    { id: "dana", name: "DANA", image: "../asset/logo/dana.png" },
+    { id: "shopeepay", name: "ShopeePay", image: "../asset/logo/shopeepay.png" },
+    { id: "ovo", name: "OVO", image: "../asset/logo/ovo.png" },
+    { id: "gopay", name: "GOPAY", image: "../asset/logo/gopay.png" },
+    { id: "linkaja", name: "LINKAJA", image: "../asset/logo/linkaja.png" }
   ],
   bank: [
-    { id: "bca", name: "BCA", image: "assets/logo/bca.png" },
-    { id: "bri", name: "BRI", image: "assets/logo/bri.png" }
+    { id: "bca", name: "BCA", image: "../asset/logo/bca.png" },
+    { id: "bri", name: "BRI", image: "../asset/logo/bri.png" },
+    { id: "mandiri", name: "Mandiri", image: "../asset/logo/mandiri.png" }
   ],
   retail: [
-    { id: "alfamart", name: "Alfamart", image: "assets/logo/alfamart.png" },
-    { id: "indomaret", name: "Indomaret", image: "assets/logo/indomaret.png" }
+    { id: "alfamart", name: "Alfamart", image: "../asset/logo/alfamart.png" },
+    { id: "indomaret", name: "Indomaret", image: "../asset/logo/indomaret.png" }
   ],
   pulsa: [
-    { id: "telkomsel", name: "Telkomsel", image: "assets/logo/telkomsel.png" },
-    { id: "tri", name: "Tri", image: "assets/logo/tri.png" }
+    { id: "tri", name: "Tri", image: "../asset/logo/tri.png" },
+    { id: "telkomsel", name: "Telkomsel", image: "../asset/logo/telkomsel.png" },
+    { id: "xl", name: "XL", image: "../asset/logo/xl.png" },
+    { id: "indosat", name: "Indosat", image: "../asset/logo/indosat.png" }
   ]
 };
 
-let selectedProduct = null;
-let selectedPayment = null;
-const TAX_RATE = 0.1;
-
-// Tampilkan produk
+// Load daftar produk
 function loadProducts() {
-  const list = document.getElementById('produkList');
-  list.innerHTML = '';
+  const produkList = document.getElementById('produkList');
+  if (!produkList) return;
+
+  produkList.innerHTML = '';
 
   products.forEach(product => {
     const card = document.createElement('div');
@@ -48,20 +52,21 @@ function loadProducts() {
     card.dataset.price = product.price;
 
     let badge = '';
-    if (product.bestSeller) badge = '<div class="badge">Best Seller</div>';
-    if (product.popular) badge = '<div class="badge">Populer</div>';
+    if (product.bestSeller) badge = '<div class="badge">Best Value</div>';
 
     card.innerHTML = `
       ${badge}
-      <img src="${product.image}" alt="${product.name}">
+      <img src="${product.image}" alt="${product.name}" onerror="this.src='../asset/icon/fallback.png'">
       <h3>${product.name}</h3>
       <p>Rp ${product.price.toLocaleString('id-ID')}</p>
     `;
+
     card.addEventListener('click', () => selectProduct(card, product));
-    list.appendChild(card);
+    produkList.appendChild(card);
   });
 }
 
+// Pilih produk
 function selectProduct(card, product) {
   document.querySelectorAll('.produk-card').forEach(el => el.classList.remove('selected'));
   card.classList.add('selected');
@@ -69,96 +74,79 @@ function selectProduct(card, product) {
   updateSummary();
 }
 
+// Tampilkan ringkasan
 function updateSummary() {
-  const productSummary = document.getElementById('selectedProduct');
-  const productPriceElement = document.getElementById('productPrice');
-  const taxAmountElement = document.getElementById('taxAmount');
-  const totalPaymentElement = document.getElementById('totalPayment');
+  const price = selectedProduct?.price || 0;
+  const tax = Math.round(price * 0.1); // Pajak 10%
+  const total = price + tax;
 
-  if (selectedProduct) {
-    const tax = Math.round(selectedProduct.price * TAX_RATE);
-    const total = selectedProduct.price + tax;
+  document.getElementById('selectedProduct').textContent = selectedProduct?.name || "-";
+  document.getElementById('productPrice').textContent = `Rp ${price.toLocaleString('id-ID')}`;
+  document.getElementById('taxAmount').textContent = `Rp ${tax.toLocaleString('id-ID')}`;
+  document.getElementById('totalPayment').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+}
 
-    productSummary.textContent = selectedProduct.name;
-    productPriceElement.textContent = `Rp ${selectedProduct.price.toLocaleString('id-ID')}`;
-    taxAmountElement.textContent = `Rp ${tax.toLocaleString('id-ID')}`;
-    totalPaymentElement.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+// Load metode pembayaran
+function loadPaymentMethods() {
+  for (const group in paymentMethods) {
+    const container = document.getElementById(group);
+    if (!container) continue;
 
-    document.getElementById('checkoutBtn').querySelector('.button-price').textContent = 
-      `Rp ${total.toLocaleString('id-ID')}`;
-  } else {
-    productSummary.textContent = "-";
-    productPriceElement.textContent = "Rp 0";
-    taxAmountElement.textContent = "Rp 0";
-    totalPaymentElement.textContent = "Rp 0";
+    const row = document.createElement('div');
+    row.className = 'card-payment-row';
+
+    paymentMethods[group].forEach(method => {
+      const label = document.createElement('label');
+      label.className = 'card-payment';
+      label.innerHTML = `
+        <input type="radio" name="metodePembayaran" value="${method.id}">
+        <img src="${method.image}" alt="${method.name}" onerror="this.src='../asset/logo/fallback.png'">
+        <span>${method.name}</span>
+      `;
+
+      label.querySelector('input').addEventListener('change', () => {
+        selectedPayment = method;
+        updateSummary();
+      });
+
+      row.appendChild(label);
+    });
+
+    container.appendChild(row);
   }
 }
 
-function validateForm() {
-  const playerId = document.getElementById('playerId').value;
-  const email = document.getElementById('email').value;
+// Checkout
+function processCheckout(e) {
+  e.preventDefault();
 
-  if (!playerId) return alert("Masukkan Player ID"), false;
-  if (!email.match(/^\S+@\S+\.\S+$/)) return alert("Masukkan email yang valid"), false;
-  if (!selectedProduct) return alert("Pilih produk"), false;
-  if (!selectedPayment) return alert("Pilih metode pembayaran"), false;
+  if (!selectedProduct || !selectedPayment) {
+    alert("Silakan pilih produk dan metode pembayaran.");
+    return;
+  }
 
-  return true;
-}
-
-function processCheckout() {
-  if (!validateForm()) return;
-
-  const tax = Math.round(selectedProduct.price * TAX_RATE);
-  const total = selectedProduct.price + tax;
-
-  const data = {
-    game: "Free Fire",
-    playerId: document.getElementById('playerId').value,
-    email: document.getElementById('email').value,
-    whatsapp: document.getElementById('whatsapp').value || null,
-    product: selectedProduct.name,
-    price: selectedProduct.price,
-    tax: tax,
-    total: total,
-    payment: selectedPayment.name,
-    payment_id: selectedPayment.id,
-    timestamp: new Date().toISOString()
-  };
-
-  localStorage.setItem("checkoutData", JSON.stringify(data));
+  // Simulasi redirect ke pembayaran
   window.location.href = "../pembayaran.html";
 }
 
-// Inisialisasi
-document.addEventListener("DOMContentLoaded", () => {
+// Init
+document.addEventListener('DOMContentLoaded', () => {
   loadProducts();
+  loadPaymentMethods();
+  document.getElementById('checkoutBtn').addEventListener('click', processCheckout);
 
-  // Tab button (jika ada)
+  // Tab switching functionality
   document.querySelectorAll('.tab-button').forEach(button => {
     button.addEventListener('click', () => {
+      const tabId = button.dataset.tab;
+      
+      // Update active tab button
       document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-      const tabId = button.dataset.tab;
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      
+      // Update active tab content
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
     });
   });
-
-  // Payment select
-  document.querySelectorAll('.card-payment input').forEach(input => {
-    input.addEventListener('change', () => {
-      const methodId = input.value;
-      for (let group in paymentMethods) {
-        const found = paymentMethods[group].find(p => p.id === methodId);
-        if (found) {
-          selectedPayment = found;
-          updateSummary();
-          break;
-        }
-      }
-    });
-  });
-
-  document.getElementById('checkoutBtn').addEventListener('click', processCheckout);
 });
