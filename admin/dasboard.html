@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../admin/dasboard.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <h1>📊 Dashboard Admin</h1>
 
+    <div class="stat-cards">
+      <div class="card">
+        <h2>🛒 Pembelian</h2>
+        <p id="total-pembelian">0</p>
+      </div>
+      <div class="card">
+        <h2>👥 Pengguna</h2>
+        <p id="total-pengguna">0</p>
+      </div>
+      <div class="card">
+        <h2>💰 Total Saldo</h2>
+        <p id="total-saldo">Rp0</p>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button onclick="window.location.href='pesanan.html'">📦 Lihat Pesanan</button>
+      <button onclick="window.location.href='produk.html'">🎮 Kelola Produk</button>
+    </div>
+  </div>
+
+  <script type="module" src="../admin/dasboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manajemen Produk</title>
+  <link rel="stylesheet" href="produk.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Manajemen Produk</h1>
+
+    <!-- FORM TAMBAH / EDIT -->
+    <form id="produkForm">
+      <label for="game">Game</label>
+      <select id="game" required>
+        <option value="">-- Pilih Game --</option>
+        <option value="bs">BS</option>
+        <option value="coc">COC</option>
+        <option value="codm">CODM</option>
+        <option value="df">DF</option>
+        <option value="fc">FC</option>
+        <option value="ff">FF</option>
+        <option value="ffmax">FFMAX</option>
+        <option value="genshin">Genshin</option>
+        <option value="honkai">Honkai</option>
+        <option value="gt">GT</option>
+        <option value="la">LA</option>
+        <option value="lm">LM</option>
+        <option value="lolpc">LOLPC</option>
+        <option value="mc">MC</option>
+        <option value="ml">ML</option>
+        <option value="pb">PB</option>
+        <option value="pubgm">PUBGM</option>
+        <option value="pubml">PUBML</option>
+        <option value="roblox">Roblox</option>
+        <option value="rok">ROK</option>
+        <option value="rosm">ROSM</option>
+        <option value="valoran">Valoran</option>
+      </select>
+
+      <label for="nama">Nama Produk</label>
+      <input type="text" id="nama" placeholder="Contoh: 86 Diamond" required />
+
+      <label for="harga">Harga (Rp)</label>
+      <input type="number" id="harga" placeholder="Contoh: 1400" required />
+
+      <label for="image">Link Gambar</label>
+      <input type="url" id="image" placeholder="https://..." required />
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="bestSeller" /> Best Seller</label>
+        <label><input type="checkbox" id="tersedia" checked /> Tersedia</label>
+      </div>
+
+      <button type="submit" id="submitBtn">Tambah Produk</button>
+    </form>
+
+    <h2>Daftar Produk</h2>
+    <div id="produkList"></div>
+  </div>
+
+  <script type="module" src="produk.js"></script>
+</body>
+</html>
